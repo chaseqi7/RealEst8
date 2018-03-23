@@ -24,9 +24,9 @@
         <div>
             <ul class="navbar">
                 <li class="navTitle"><a href="#home">Real Est8</a></li>
-                <li class="dropdown">
+                <li id="account-dropdown" class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Sign in</a>
-                    <div class="dropdown-content">
+                    <div id="account-dropdown-content" class="dropdown-content">
                         <a href="#">Profile</a>
                         <a href="#">Sign out</a>
                     </div>
@@ -35,13 +35,33 @@
         </div>
         <!--Navbar-->
         <!--Search Bar-->
-        <div align="center">
-            <div class="search-container">
-                <input id="mainSearchBar" type="text" name="search" placeholder="Search..">
-                <button id="filter-button">Filters</button>
+        <div class="search-container" align="center">
+            <input id="mainSearchBar" type="text" name="search" placeholder="Search..">
+            <button onclick="filterShowHide()" id="filter-button">Filters</button>
+            <div id="filter-pane" style="display: none">
+                <form>
+                    <h3>Waiting for filters...</h3>
+                </form>
             </div>
         </div>
+        <script>
+            /* When the user clicks on the button,
+            toggle between hiding and showing the dropdown content */
+            function filterShowHide() {
+                var x = document.getElementById("filter-pane");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+        </script>
         <!--Search Bar-->
+        <!--Suggestiongs/Search Results-->
+        <div id="main-listings" align="center">
+            <h2>Suggestions</h2>
+        </div>
+        <!--Suggestiongs/Search Results-->
 
 
         <script src="js/vendor/modernizr-3.5.0.min.js"></script>

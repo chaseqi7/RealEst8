@@ -33,13 +33,13 @@ li a, .dropbtn {
     text-decoration: none;
 }
 
-li.dropdown {
+#account-dropdown {
     display: inline-block;
     float: right;
     margin-right: 18.9%;
 }
 
-.dropdown-content {
+#account-dropdown-content {
     display: none;
     position: absolute;
     right: 18.1%;
@@ -49,7 +49,7 @@ li.dropdown {
     z-index: 1;
 }
 
-.dropdown-content a {
+#account-dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -57,11 +57,11 @@ li.dropdown {
     text-align: right;
 }
 
-.dropdown-content a:hover {
+#account-dropdown-content a:hover {
     background-color: #f1f1f1
 }
 
-.dropdown:hover .dropdown-content {
+#account-dropdown:hover .dropdown-content {
     display: inline-block;
 }
 
@@ -101,6 +101,16 @@ li.dropdown {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+}
+#filter-button:hover {
+    background-color: #51287A;
+    cursor: pointer;
+}
+
+#filter-pane {
+    border: 2px solid rebeccapurple;
+    margin-left: 18.4%;
+    margin-right: 18.4%;
 }
 
 /*! HTML5 Boilerplate v6.0.1 | MIT License | https://html5boilerplate.com/ */
