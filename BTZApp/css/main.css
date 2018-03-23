@@ -65,16 +65,42 @@ li.dropdown {
     display: inline-block;
 }
 
+/*.topnav .search-container button {*/
+    /*float: right;*/
+    /*padding: 6px 10px;*/
+    /*margin-top: 8px;*/
+    /*margin-right: 16px;*/
+    /*background: #ddd;*/
+    /*font-size: 17px;*/
+    /*border: none;*/
+    /*cursor: pointer;*/
+/*}*/
+.search-container {
+    margin: 3% 0px 12px 2px;
+}
+
 #mainSearchBar {
-    background: url('/Resources/search-icon-small.png');
+    background-color: white;
+    background: url(../img/search-icon-small.png);
     background-position: 10px 12px;
     background-repeat: no-repeat;
-    /*position: absolute;*/
-    width: 60%;
+    background-size: 2%;
+    border: 1px solid #ddd;
+    width: 54%;
     font-size: 16px;
     padding: 12px 20px 12px 40px;
-    border: 1px solid #ddd;
-    margin: 3% 12px 12px 2px;
+    margin-right: -0.5%;
+}
+
+#filter-button {
+    background-color: rebeccapurple; /* Green */
+    border: 1px solid rebeccapurple;
+    color: white;
+    padding: 12px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
 
 /*! HTML5 Boilerplate v6.0.1 | MIT License | https://html5boilerplate.com/ */

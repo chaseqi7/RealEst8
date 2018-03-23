@@ -21,20 +21,25 @@
 
         <!-- Add your site or application content here -->
         <!--Navbar-->
-        <ul class="navbar">
-            <li class="navTitle"><a href="#home">Real Est8</a></li>
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">Sign in</a>
-                <div class="dropdown-content">
-                    <a href="#">Profile</a>
-                    <a href="#">Sign out</a>
-                </div>
-            </li>
-        </ul>
+        <div>
+            <ul class="navbar">
+                <li class="navTitle"><a href="#home">Real Est8</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Sign in</a>
+                    <div class="dropdown-content">
+                        <a href="#">Profile</a>
+                        <a href="#">Sign out</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
         <!--Navbar-->
         <!--Search Bar-->
         <div align="center">
-            <input type="text" id="mainSearchBar" name="search" placeholder="Search..">
+            <div class="search-container">
+                <input id="mainSearchBar" type="text" name="search" placeholder="Search..">
+                <button id="filter-button">Filters</button>
+            </div>
         </div>
         <!--Search Bar-->
 
