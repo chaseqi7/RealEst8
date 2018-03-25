@@ -75,8 +75,8 @@ li a, .dropbtn {
     /*border: none;*/
     /*cursor: pointer;*/
 /*}*/
-.search-container {
-    margin: 3% 0px 12px 2px;
+#search-container {
+    margin: 3% 0% 1% 0.2%;
 }
 
 #mainSearchBar {
@@ -88,7 +88,7 @@ li a, .dropbtn {
     border: 1px solid #ddd;
     width: 54%;
     font-size: 16px;
-    padding: 12px 20px 12px 40px;
+    padding: 12px 3% 12px 40px;
     margin-right: -0.5%;
 }
 
@@ -109,6 +109,11 @@ li a, .dropbtn {
 
 #filter-pane {
     border: 2px solid rebeccapurple;
+    margin-left: 18.4%;
+    margin-right: 18.39%;
+}
+
+#main-listings {
     margin-left: 18.4%;
     margin-right: 18.4%;
 }
