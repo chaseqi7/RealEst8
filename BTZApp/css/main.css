@@ -21,7 +21,7 @@ body {
 
 li {
     float: left;
-    margin-left: 18.3%;
+    margin-left: 18.4%;
 }
 
 li a, .dropbtn {
@@ -36,7 +36,7 @@ li a, .dropbtn {
 #account-dropdown {
     display: inline-block;
     float: right;
-    margin-right: 18.9%;
+    margin-right: 18.4%;
 }
 
 #account-dropdown-content {
@@ -76,7 +76,7 @@ li a, .dropbtn {
     /*cursor: pointer;*/
 /*}*/
 #search-container {
-    margin: 3% 0% 1% 0.2%;
+    margin: 3% 0% 1% 0%;
 }
 
 #mainSearchBar {
@@ -116,6 +116,40 @@ li a, .dropbtn {
 #main-listings {
     margin-left: 18.4%;
     margin-right: 18.4%;
+}
+
+#example-listing {
+    border: 2px solid rebeccapurple;
+}
+
+.listing-detail {
+    display: inline-block;
+}
+
+#listing-image {
+    margin: 1% 1% 1% 1%;
+    height: 35%;
+    width: 35%;
+    float: left;
+}
+
+#listing-address {
+    vertical-align: top;
+    margin-top: 1%;
+}
+
+#listing-city {
+    vertical-align: top;
+}
+
+#listing-label2 {
+    float: right;
+    margin-right: 1%;
+}
+
+#listing-extra2 {
+    float: right;
+    margin-right: 1%;
 }
 
 /*! HTML5 Boilerplate v6.0.1 | MIT License | https://html5boilerplate.com/ */
