@@ -118,41 +118,64 @@ li a, .dropbtn {
     margin-right: 18.4%;
 }
 
-#example-listing {
+.example-listing {
     border: 2px solid rebeccapurple;
+    margin-bottom: 1%;
+}
+
+/*.listing-image-contrainer {*/
+    /*float: left;*/
+    /*border: 1px solid;*/
+    /*width: 35%;*/
+    /*height: 100%;*/
+    /*!*object-fit:scale-down;*!*/
+/*}*/
+
+/*.listing-info-container {*/
+    /*display: inline-block;*/
+/*}*/
+
+.listing-image {
+    margin: 1% 1% 1% 1%;
+    width: 35%;
+    height: 35%;
+    float: left;
+}
+
+.listing-address {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 1%;
+    margin-bottom: 0%;
+}
+
+.listing-city {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+.listing-price {
+    margin-bottom: 0.5%;
+}
+
+.listing-extra-div1 {
+    display: inline-block;
+    margin-top: 0%;
+}
+
+.listing-extra-div2 {
+    display: inline-block;
+    float: right;
+    margin-right: 1%;
 }
 
 .listing-detail {
     display: inline-block;
 }
 
-#listing-image {
-    margin: 1% 1% 1% 1%;
-    height: 35%;
-    width: 35%;
-    float: left;
-}
-
-#listing-address {
-    vertical-align: top;
-    margin-top: 1%;
-}
-
-#listing-city {
-    vertical-align: top;
-}
-
-#listing-label2 {
-    float: right;
-    margin-right: 1%;
-}
-
-#listing-extra2 {
-    float: right;
-    margin-right: 1%;
-}
-
-/*! HTML5 Boilerplate v6.0.1 | MIT License | https://html5boilerplate.com/ */
+    /*! HTML5 Boilerplate v6.0.1 | MIT License | https://html5boilerplate.com/ */
 
 /*
  * What follows is the result of much research on cross-browser styling.
