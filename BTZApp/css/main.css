@@ -7,6 +7,10 @@ body {
     margin: 0px 0px 0px 0px;
 }
 
+a {
+    text-decoration: inherit;
+}
+
 .navbar {
     list-style-type: none;
     margin: 0;
@@ -65,16 +69,9 @@ li a, .dropbtn {
     display: inline-block;
 }
 
-/*.topnav .search-container button {*/
-    /*float: right;*/
-    /*padding: 6px 10px;*/
-    /*margin-top: 8px;*/
-    /*margin-right: 16px;*/
-    /*background: #ddd;*/
-    /*font-size: 17px;*/
-    /*border: none;*/
-    /*cursor: pointer;*/
-/*}*/
+/*---------------------------------------------------------------------------------------------------------------------
+Home Page
+---------------------------------------------------------------------------------------------------------------------*/
 #search-container {
     margin: 3% 0% 1% 0%;
 }
@@ -93,7 +90,7 @@ li a, .dropbtn {
 }
 
 #filter-button {
-    background-color: rebeccapurple; /* Green */
+    background-color: rebeccapurple;
     border: 1px solid rebeccapurple;
     color: white;
     padding: 12px 18px;
@@ -118,28 +115,39 @@ li a, .dropbtn {
     margin-right: 18.4%;
 }
 
-.example-listing {
+.listing {
     border: 2px solid rebeccapurple;
     margin-bottom: 1%;
 }
 
-/*.listing-image-contrainer {*/
-    /*float: left;*/
-    /*border: 1px solid;*/
-    /*width: 35%;*/
-    /*height: 100%;*/
-    /*!*object-fit:scale-down;*!*/
-/*}*/
+.listings > a {
+    color: black   ;
+}
 
-/*.listing-info-container {*/
-    /*display: inline-block;*/
-/*}*/
+.listing:hover {
+    background-color: LightGray;
+}
+
+.listing > img {
+    margin: 1% 1% 1% 1%;
+    /*width: 35%;*/
+    /*height: 17.5%;*/
+    width: 350px;
+    height: 165px;
+    display: inline-block;
+    float: left;
+    border: 2px solid rebeccapurple;
+}
+
+.listing-image-contrainer {
+    width: 35%;
+    height: auto;
+    float: left;
+    margin: 1% 1% 1% 1%;
+}
 
 .listing-image {
-    margin: 1% 1% 1% 1%;
-    width: 35%;
-    height: 35%;
-    float: left;
+    object-fit: cover;
 }
 
 .listing-address {
@@ -174,6 +182,43 @@ li a, .dropbtn {
 .listing-detail {
     display: inline-block;
 }
+
+/*---------------------------------------------------------------------------------------------------------------------
+Login Page
+---------------------------------------------------------------------------------------------------------------------*/
+#login-container {
+    margin: 5% 32% 0% 32%;
+    padding: 1% 1% 1% 1%;
+    border: 2px solid rebeccapurple;
+}
+
+.login-element {
+    margin-bottom: 5%;
+}
+
+#login-container > a {
+    color: rebeccapurple;
+}
+
+#login-button  {
+    background-color: rebeccapurple;
+    border: 1px solid rebeccapurple;
+    width: 100px;
+    color: white;
+    padding: 12px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#sign-up-link {
+    margin-top: 0%;
+}
+/*#login-container > form {*/
+    /*padding: 1% 1% 1% 1%;*/
+    /*margin: 5% 32% 0% 32%;*/
+/*}*/
 
     /*! HTML5 Boilerplate v6.0.1 | MIT License | https://html5boilerplate.com/ */
 
