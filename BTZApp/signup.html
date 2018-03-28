@@ -9,6 +9,7 @@
 
         <link rel="manifest" href="site.webmanifest">
         <link rel="apple-touch-icon" href="icon.png">
+        <link rel="icon" href="img/house-icon.png">
         <!-- Place favicon.ico in the root directory -->
 
         <link rel="stylesheet" href="css/normalize.css">
@@ -35,13 +36,44 @@
         </div>
         <!--Navbar-->
         <!--Sign In Form-->
-        <div id="login-container">
+        <div id="signup-container">
             <form>
-                <label id="login-label-email" class="login-element" for="login-email">Email:</label><br>
-                <input id="login-email" class="login-element" type="text"/><br>
-                <label id="login-label-password" class="login-element" for="login-password">Password:</label><br>
-                <input id="login-password" class="login-element" type="text"/><br>
-                <input id="login-button" class="login-element" type="submit" value="Login">
+                <label id="signup-label-firstName" class="login-element" for="signup-firstName">First Name:</label><br>
+                <input id="signup-firstName" class="login-element" type="text"/><br>
+                <label id="signup-label-lastName" class="login-element" for="signup-email">Last Name:</label><br>
+                <input id="signup-lastName" class="login-element" type="text"/><br>
+                <label id="signup-label-email" class="login-element" for="signup-email">Email:</label><br>
+                <input id="signup-email" class="login-element" type="text"/><br>
+                <label id="signup-label-password" class="login-element" for="signup-password">Password:</label><br>
+                <input id="signup-password" class="login-element" type="password"/><br>
+                <label id="signup-label-password-confirm" class="login-element" for="signup-password-confirm">Confirm:</label><br>
+                <input id="signup-password-confirm" class="login-element" type="password"/><br>
+                <label id="signup-label-address" class="login-element" for="signup-address">Address:</label><br>
+                <input id="signup-address" class="login-element" type="text"/><br>
+                <label id="signup-label-city" class="login-element" for="signup-city">City:</label><br>
+                <input id="signup-city" class="login-element" type="text"/><br>
+                <label id="signup-label-province" class="login-element" for="signup-province">Province:</label><br>
+                <select id="signup-province" class="login-element">
+                    <option/>
+                    <option value="AB">Alberta</option>
+                    <option value="BC">British Columbia</option>
+                    <option value="MB">Manitoba</option>
+                    <option value="NB">New Brunswick</option>
+                    <option value="NL">Newfoundland and Labrador</option>
+                    <option value="NT">Northwest Territories</option>
+                    <option value="NS">Nova Scotia</option>
+                    <option value="NU">Nunavut</option>
+                    <option value="ON">Ontario</option>
+                    <option value="PE">Prince Edward Island</option>
+                    <option value="QC">Quebec</option>
+                    <option value="SK">Saskatchewan</option>
+                    <option value="YT">Yukon</option>
+                </select><br>
+                <label id="signup-label-postal-code" class="login-element" for="signup-postal-code">Postal Code:</label><br>
+                <input id="signup-postal-code" class="login-element" type="text"/><br>
+                <label id="signup-label-phone-num" class="login-element" for="signup-phone-num">Phone Number:</label><br>
+                <input id="signup-phone-num" class="login-element" type="text"/><br>
+                <input id="signup-button" class="login-element" type="submit" value="Sign Up">
             </form>
         </div>
         <!--Sign In Form-->
