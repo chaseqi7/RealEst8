@@ -4,24 +4,46 @@
 * Date created: 2018-03-25
 * File name: home.js
 */
-
 function apiLogin(){
-    var xhttp = createCORSRequest("POST","http://sample.data.crea.ca/Login.svc/Login");
-        if (!xhttp) {
-        throw new Error('CORS not supported');
-    }
-    xhttp.setRequestHeader("Origin", "http://sample.data.crea.ca");
-    xhttp.setRequestHeader("Access-Control-Allow-Origin", "http://sample.data.crea.ca");
-    xhttp.send();
-    xhttp.onload = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var myObj = JSON.parse(this.responseText);
-            document.getElementById("temp").innerHTML = JSON.stringify(myObj);
+    $.ajax({
+        type: "POST",
+        datatype:"json",
+        url: "http://sample.data.crea.ca/Login.svc/Login",
+        data:({
+            Username : 'CXLHfDVrziCfvwgCuL8nUahC',
+            password: 'mFqMsCSPdnb5WO1gpEEtDCHH'
+        }),
+        success: function(result)
+        {
+            if(result && result.auth_token.length>1) // you should do your checking here
+            {
+                $('#message').empty()
+                    .append('Success');
+            }
+            else
+            {
+                $('#message').empty().addClass('error')
+                    .append('Something is wrong.');
+            }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert(jqXHR.status);
         }
-    };
-    xhttp.onerror = function() {
-        console.log('There was an error!');
-    };
+    });
+    // var xhttp = createCORSRequest("POST","http://sample.data.crea.ca/Login.svc/Login");
+    //     if (!xhttp) {
+    //     throw new Error('CORS not supported');
+    // }
+    // xhttp.send();
+    // xhttp.onload = function() {
+    //     if (this.readyState == 4 && this.status == 200) {
+    //         var myObj = JSON.parse(this.responseText);
+    //         document.getElementById("temp").innerHTML = JSON.stringify(myObj);
+    //     }
+    // };
+    // xhttp.onerror = function() {
+    //     console.log('There was an error!');
+    // };
 }
 
 function apiSearch(){
