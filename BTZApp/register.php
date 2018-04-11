@@ -25,19 +25,15 @@ $email = $mysqli->escape_string($_POST['email']);
 $phone = $mysqli->escape_string($_POST['phone']);
 $password = $mysqli->escape_string(password_hash($_POST['password'],PASSWORD_DEFAULT));
 
-
 // Check if user with that email already exists
 $result = $mysqli->query("SELECT * FROM UserT WHERE Email='$email'") or die($mysqli->error());
 
-// We know user email exists if the rows returned are more than 0
-if($passwordCheckBase == $passwordConfirm) {
-    if ( $result->num_rows > 0 ) {
-
+if($passwordCheckBase === $passwordConfirm) {
+    // We know user email exists if the rows returned are more than 0
+    if ($result->num_rows > 0) {
         $_SESSION['message'] = 'User with this email already exists!';
         header("location: error.php");
-
-    }
-    else { // Email doesn't already exist in a database, proceed...
+    } else { // Email doesn't already exist in a database, proceed...
         // active is 0 by DEFAULT (no need to include it here)
         $sql = "INSERT INTO UserT (Email,Password,FirstName,LastName,Role,PhoneNumber) 
             VALUES ('$email','$password','$first_name','$last_name',3,'$phone')";
@@ -50,7 +46,7 @@ if($passwordCheckBase == $passwordConfirm) {
             $_SESSION['message'] =
 
                 "Confirmation link has been sent to $email, please verify
-                     your account by clicking on the link in the message!";
+                your account by clicking on the link in the message!";
 
             // Send registration confirmation link (verify.php)
             $to = $email;
@@ -62,18 +58,18 @@ if($passwordCheckBase == $passwordConfirm) {
     
             Please click this link to activate your account:
     
-            http://localhost/BTZApp/php/verify.php?email=' . $email . '&hash=' . $hash;
+            http://localhost/BTZApp/php/verify.php?email=' . $email;
 
             mail($to, $subject, $message_body);
 
             header("location: profile.php");
-
         } else {
             $_SESSION['message'] = 'Registration failed!';
             header("location: error.php");
         }
     }
-} else {
+}
+else {
     $_SESSION['message'] = 'Passwords did not match';
     header("location: error.php");
 }
