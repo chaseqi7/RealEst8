@@ -54,20 +54,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             <div id="login">
                 <h1>Welcome Back!</h1>
 
-                <form action="account.php" method="post" autocomplete="off">
+                <form name="signInForm" action="account.php" method="post" autocomplete="off">
 
                     <div class="field-wrap">
                         <label>
                             Email Address<span class="req"></span>
                         </label>
-                        <input type="email" required autocomplete="off" name="email"/>
+                        <input type="email" autocomplete="off" name="email"/>
                     </div>
 
                     <div class="field-wrap">
                         <label>
                             Password<span class="req"></span>
                         </label>
-                        <input type="password" required autocomplete="off" name="password"/>
+                        <input type="password" autocomplete="off" name="password"/>
                     </div>
 
                     <p class="forgot"><a href="forgot.php">Forgot Password?</a></p>
@@ -81,21 +81,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             <div id="signup">
                 <h1>Sign Up</h1>
 
-                <form action="account.php" method="post" autocomplete="off">
+                <form name="signUpForm" action="account.php" method="post" autocomplete="off">
 
                     <div class="top-row">
                         <div class="field-wrap">
                             <label>
                                 First Name<span class="req"></span>
                             </label>
-                            <input type="text" required autocomplete="off" name='firstname' />
+                            <input type="text" autocomplete="off" name='firstname' />
                         </div>
 
                         <div class="field-wrap">
                             <label>
                                 Last Name<span class="req"></span>
                             </label>
-                            <input type="text"required autocomplete="off" name='lastname' />
+                            <input type="text" autocomplete="off" name='lastname' />
                         </div>
                     </div>
 
@@ -103,21 +103,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                         <label>
                             Email Address<span class="req"></span>
                         </label>
-                        <input type="email"required autocomplete="off" name='email' />
+                        <input type="email" autocomplete="off" name='email' />
                     </div>
 
                     <div class="field-wrap">
                         <label>
                             Password<span class="req"></span>
                         </label>
-                        <input type="password"required autocomplete="off" name='password'/>
+                        <input type="password" autocomplete="off" name='password'/>
                     </div>
 
                     <div class="field-wrap">
                         <label>
                             Confirm Password<span class="req"></span>
                         </label>
-                        <input type="password"required autocomplete="off" name='confirmPassword'/>
+                        <input type="password" autocomplete="off" name='confirmPassword'/>
                     </div>
 
                     <div class="field-wrap">
@@ -131,7 +131,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             </div>
         </div><!-- tab-content -->
     </div> <!-- /form -->
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src="js/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"/>
+    <script src="js/vendor/jquery.validate.js"/>
+    <script src="js/index.js"/>
+    <script src="js/validation.js"/>
 </body>
 </html>

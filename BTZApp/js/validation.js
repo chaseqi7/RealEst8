@@ -1,38 +1,63 @@
-$(document).ready(function() {
-    var form = $("#signUpForm");
-    form.validate({
+$(function() {
+    $("#signInForm").validate({
         rules:{
-            txtFirstNameSU:{
+            email:{
                 required: true
             },
-            txtLastNameSU:{
-                required: true
-            },
-            txtEmailSU:{
-                required: true
-            },
-            txtPasswordSU:{
-                required: true
-            },
-            txtPasswordConfirmSU:{
+            password:{
                 required: true
             }
         },
         messages:{
-            txtFirstNameSU:{
-                required: "You must enter your first name",
-            },
-            txtLastNameSU:{
-                required: "You must enter your last name",
-            },
-            txtEmailSU:{
+            email:{
                 required: "You must enter an email address"
             },
-            txtPasswordSU:{
+            password:{
+                required: "You must enter a password"
+            }
+        }
+    });
+});
+$(function() {
+    $("#signUpForm").validate({
+        rules:{
+            firstname:{
+                required: true
+            },
+            lastname:{
+                required: true
+            },
+            email:{
+                required: true
+            },
+            password:{
+                required: true
+            },
+            confirmPassword:{
+                required: true
+            },
+            phone:{
+                required: true
+            }
+        },
+        messages:{
+            firstname:{
+                required: "You must enter your first name",
+            },
+            lastname:{
+                required: "You must enter your last name",
+            },
+            email:{
+                required: "You must enter an email address"
+            },
+            password:{
                 required: "You must enter a password"
             },
-            txtPasswordConfirmSU:{
+            confirmPassword:{
                 required: "You must confirm your password"
+            },
+            phone:{
+                required: "You must enter a phone number"
             }
         }
     });
