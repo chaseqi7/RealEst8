@@ -15,8 +15,11 @@ session_start();
 <head>
     <title>Sign-Up/Login Form</title>
     <?php include 'css/css.html'; ?>
+<!--    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>-->
+<!--    <script src="libraries/jquery.validate.js"></script>-->
+<!--    <script src="js/index.js"></script>-->
+<!--    <script src="js/validation.js"></script>-->
 </head>
-
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
@@ -72,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
                     <p class="forgot"><a href="forgot.php">Forgot Password?</a></p>
 
-                    <button class="button button-block" name="login" />Log In</button>
+                    <button class="button button-block" name="login" id="login"/>Log In</button>
 
                 </form>
 
@@ -110,30 +113,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                         <label>
                             Password<span class="req"></span>
                         </label>
-                        <input type="password" autocomplete="off" name='password'/>
+                        <input type="password" autocomplete="off" name='password' id="password"/>
                     </div>
 
                     <div class="field-wrap">
                         <label>
                             Confirm Password<span class="req"></span>
                         </label>
-                        <input type="password" autocomplete="off" name='confirmPassword'/>
+                        <input type="password" autocomplete="off" name='confirmPassword' id="confirmPassword"/>
                     </div>
 
                     <div class="field-wrap">
                         <label>
                             Phone Number<span class="req"></span>
                         </label>
-                        <input type="text" required autocomplete="off" name='phone'/>
+                        <input type="text" autocomplete="off" name='phone'/>
                     </div>
-                    <button type="submit" class="button button-block" name="register" />Register</button>
+                    <button type="submit" class="button button-block" name="register" id="register"/>Register</button>
                 </form>
             </div>
         </div><!-- tab-content -->
     </div> <!-- /form -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"/>
-    <script src="js/vendor/jquery.validate.js"/>
-    <script src="js/index.js"/>
-    <script src="js/validation.js"/>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="libraries/jquery.validate.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/validation.js"></script>
 </body>
 </html>

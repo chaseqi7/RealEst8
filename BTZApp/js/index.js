@@ -41,3 +41,23 @@ $('.tab a').on('click', function (e) {
     $(target).fadeIn(600);
 
 });
+
+function btnRegister_click() {
+    if(doValidate_signUpForm()) {
+        console.info("Form Add Review is valid");
+    }
+}
+
+function btnLogin_click() {
+    if (doValidate_signInForm()) {
+        console.info("Form Modify Review is valid");
+    }
+}
+
+function init() {
+    $("#register").on("click", btnRegister_click);
+    $("#login").on("click", btnLogin_click);
+}
+$(document).ready(function() {
+    init();
+});

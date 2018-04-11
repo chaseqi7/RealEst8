@@ -31,6 +31,21 @@ else {
 </head>
 
 <body>
+<!--Navbar-->
+<div id="nav-bar">
+    <ul class="navbar">
+        <li class="navTitle"><a href="index.php">Real Est8</a></li>
+
+        <li id="account-dropdown" class="dropdown">
+            <?php if($_SESSION['logged_in'] == 1 ) : ?>
+                <a href="profile.php" class="dropbtn"><?php echo $first_name . $last_name ?></a>
+            <?php else : ?>
+                <a href="account.php" class="dropbtn">Sign in</a>
+            <?php endif; ?>
+        </li>
+    </ul>
+</div>
+<!--Navbar-->
 <div class="form">
 
     <h1>Welcome</h1>
