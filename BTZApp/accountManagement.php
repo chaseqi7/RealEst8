@@ -112,9 +112,14 @@ $result = $mysqli->query("
                       </td>';
                 echo '</tr>';
             }
-            ?>
-        </table>
-    </div>
+        } else {
+            echo
+            '<div class="info">
+                0 results
+            </div>';
+        }
+        ?>
+    </table>
     <?php
     $clickedDelete= $_POST['btnDeleteAccount'];
     if ($clickedDelete)
