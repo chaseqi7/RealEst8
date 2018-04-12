@@ -33,21 +33,21 @@ if ( $result->num_rows == 0 ){ // User doesn't exist
             $sqlAddAgent = "INSERT INTO AdminAndAgent (UserID) VALUES ($userID)";
             if ($mysqli->query($sqlAddUser)) {
                 $_SESSION['addAccountMessage'] = 'User '. $email. ' was successfully added!';
-                header("location: createAccountPage.php");
+                header("location: accountManagement.php");
             }
             else{
                 $_SESSION['addAccountMessage'] = 'Something was wrong! Please remove user '.
                     $email. ' and re-add again!';
-                header("location: createAccountPage.php");
+                header("location: accountManagement.php");
             }
         }
 
     } else {
         $_SESSION['addAccountMessage'] = 'Failed to add user '. $email. '!';
-        header("location: createAccountPage.php");
+        header("location: accountManagement.php");
     }
 }
 else { // User exists
     $_SESSION['addAccountMessage'] = "User '. $email .' already exist!";
-    header("location: createAccountPage.php");
+    header("location: accountManagement.php");
 }

@@ -66,14 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     <!-- Add Account Form -->
     <div class="form">
         <h1>Add Account</h1>
-        <p>
-            <?php
-            if( isset($_SESSION['addAccountMessage']) AND !empty($_SESSION['addAccountMessage']) ):
-                echo $_SESSION['addAccountMessage'];
-                unset($_SESSION['addAccountMessage']);
-            endif;
-            ?>
-        </p>
         <form name="addAccountForm" action="createAccount.php" method="post" autocomplete="off">
             <div class="field-wrap">
                 <label>

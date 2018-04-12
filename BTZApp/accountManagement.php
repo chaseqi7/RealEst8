@@ -80,6 +80,14 @@ $result = $mysqli->query("
 
     <!-- List of user -->
     <h2>List of users</h2>
+    <p>
+        <?php
+        if( isset($_SESSION['addAccountMessage']) AND !empty($_SESSION['addAccountMessage']) ):
+            echo $_SESSION['addAccountMessage'];
+            unset($_SESSION['addAccountMessage']);
+        endif;
+        ?>
+    </p>
     <a href="createAccountPage.php"><input name="btnDeleteAccount" type="button" value="Add Account"></a>
     <table>
         <tr>

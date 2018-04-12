@@ -20,13 +20,13 @@ if(isset($_POST['id']) && !empty($_POST['id']))
     if ($result)
     {
         $message = "Account has been deleted successfully!";
-        echo "<script type='text/javascript'>alert('$message');</script>";
+        $_SESSION['addAccountMessage'] = "Something was wrong, failed to delete account!";
 
         header("location: accountManagement.php");
     }
     else {
-        $_SESSION['message'] = "Something was wrong, failed to delete account!";
-        header("location: error.php");
+        $_SESSION['addAccountMessage'] = "Something was wrong, failed to delete account!";
+        header("location: accountManagement.php");
     }
 }
 else {
