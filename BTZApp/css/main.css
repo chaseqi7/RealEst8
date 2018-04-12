@@ -268,7 +268,43 @@ textarea.error {
     /*margin-bottom: 0%;*/
 /*}*/
 
+/*!*---------------------------------------------------------------------------------------------------------------------*/
+/*Profile Page*/
+/*---------------------------------------------------------------------------------------------------------------------*!*/
 
+#profile-page {
+    margin: 3% 32% 3% 32%;
+    padding: 1% 1% 1% 1%;
+    border: 2px solid rebeccapurple;
+}
+
+#profile-page > table {
+    width: 50%;
+}
+
+#editProfileButton {
+    background-color: rebeccapurple;
+    border: 2px solid rebeccapurple;
+    color: white;
+    padding: 12px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 100%;
+}
+
+/*#profile-page > table > th {*/
+    /*text-align: left;*/
+/*}*/
+
+/*#profile-page > table > td {*/
+    /*text-align: right;*/
+/*}*/
+
+tr {
+    height: 50px;
+}
 
 /*!*#login-container > form {*!*/
     /*!*padding: 1% 1% 1% 1%;*!*/

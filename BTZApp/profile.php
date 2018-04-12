@@ -59,7 +59,7 @@ $result = $mysqli->query("SELECT * FROM UserT WHERE Email='$email'");
         ?>
     </ul>
 </div>
-<div>
+<div id="profile-page">
     <h2>Welcome <?php echo $first_name.' '.$last_name; ?></h2>
     <p>
         <?php
@@ -79,7 +79,7 @@ $result = $mysqli->query("SELECT * FROM UserT WHERE Email='$email'");
         '<div class="info">
               Account is unverified, please confirm your email by clicking
               on the email link!
-        </div>';
+        </div><br>';
     }
     ?>
     <table>
@@ -87,20 +87,34 @@ $result = $mysqli->query("SELECT * FROM UserT WHERE Email='$email'");
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                echo '<label>First name:</label>';
-                echo '<p>'.$row["FirstName"].'</p>'."<br>";
-                echo '<label>Last name:</label>';
-                echo '<p>'.$row["LastName"].'</p>'."<br>";
-                echo '<label>Address:</label>';
-                echo '<p>'.$row["Address"].'</p>'."<br>";
-                echo '<label>City:</label>';
-                echo '<p>'.$row["City"].'</p>'."<br>";
-                echo '<label>Province:</label>';
-                echo '<p>'.$row["Province"].'</p>'."<br>";
-                echo '<label>PostalCode:</label>';
-                echo '<p>'.$row["PostalCode"].'</p>'."<br>";
-                echo '<label>PhoneNumber:</label>';
-                echo '<p>'.$row["PhoneNumber"].'</p>'."<br>";
+                echo '<tr>';
+                echo '<th align="left">First name:</th>';
+                echo '<td align="right">'.$row["FirstName"].'</td>';
+                echo '</tr>';
+                echo '<tr>';
+                echo '<th align="left">Last name:</th>';
+                echo '<td align="right">'.$row["LastName"].'</td>';
+                echo '</tr>';
+                echo '<tr>';
+                echo '<th align="left">Address:</th>';
+                echo '<td align="right">'.$row["Address"].'</td>';
+                echo '</tr>';
+                echo '<tr>';
+                echo '<th align="left">City:</th>';
+                echo '<td align="right">'.$row["City"].'</th>';
+                echo '</tr>';
+                echo '<tr>';
+                echo '<th align="left">Province:</th>';
+                echo '<td align="right">'.$row["Province"].'</td>';
+                echo '</tr>';
+                echo '<tr>';
+                echo '<th align="left">PostalCode:</th>';
+                echo '<td align="right">'.$row["PostalCode"].'</td>';
+                echo '</tr>';
+                echo '<tr>';
+                echo '<th align="left">PhoneNumber:</th>';
+                echo '<td align="right">'.$row["PhoneNumber"].'</td>';
+                echo '</tr>';
             }
         } else {
             echo
@@ -110,6 +124,7 @@ $result = $mysqli->query("SELECT * FROM UserT WHERE Email='$email'");
         }
         ?>
     </table>
+    <button type="submit" class="button button-block" name="editProfileButton" id="editProfileButton"/>Edit Profile</button>
 </div>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="js/index.js"></script>
