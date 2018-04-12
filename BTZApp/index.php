@@ -20,6 +20,38 @@ $username = "root";
 $password = "1234";
 $dbname = "BTZDatabase";
 $conn = new mysqli($servername, $username, $password, $dbname);
+function refreshList(){
+    echo $_POST['PropertyTypeSelect'];
+    // Check connection
+    global $conn;
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    else{
+        $selectSQL = "SELECT * FROM Property";
+        $result = $conn->query($selectSQL);
+        while($row = $result->fetch_array())
+        {
+            echo' <a href="listing-detail.html" class="listing-link">
+                                <div class="listing">
+                                    <img class="listing-image" src="img/example-house.jpg" />
+                                    <h3 class="listing-address">'.$row["Address"].'</h3><br>
+                                    <h3 class="listing-city">'.$row["City"]." ".$row["Province"].'</h3><br>
+                                    <h4 class="listing-price">$'.$row["Price"].'</h4><br>
+                                    <div class="listing-extra-div1">
+                                        <p class="listing-detail">Number Of Bedrooms: </p>
+                                        <p class="listing-detail">'.$row["NumberOfBedrooms"].'</p>
+                                    </div>
+                                    <div class="listing-extra-div2">
+                                        <p class="listing-detail">Number Of Bathrooms: </p>
+                                        <p class="listing-detail">'.$row["NumberOfWashrooms"].'</p><br>
+                                    </div>
+                                </div>
+                            </a>
+                        ';
+        }
+    }
+}
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -70,12 +102,16 @@ $conn = new mysqli($servername, $username, $password, $dbname);
     </div>
     <!--Search Bar-->
     <div id="search-container" align="center">
-        <input id="mainSearchBar" type="text" name="search" placeholder="Search..">
-        <button id="searchButton" name="searchButton">Search</button>
-        <button onclick="filterShowHide()" id="filter-button">Filters</button>
 
-        <div id="filter-pane" style="display: none">
-            <form id="select-panels">
+            <form id="select-panels" method="post">
+
+                <input id="mainSearchBar" type="text" name="search" placeholder="Search..">
+                <button id="searchButton" name="searchButton">Search</button>
+
+                <input type="button" onclick="filterShowHide()" id="filter-button">Filters</input>
+
+                <div id="filter-pane" style="display: none">
+
                 <?php
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
@@ -140,57 +176,30 @@ $conn = new mysqli($servername, $username, $password, $dbname);
                     <option value="0">No</option>
                 </select>
 
+
+                </div>
             </form>
-        </div>
-        <script>
-            /* When the user clicks on the button,
-            toggle between hiding and showing the dropdown content */
-            function filterShowHide() {
-                var x = document.getElementById("filter-pane");
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
-            }
-        </script>
+    </div>
         <!--Suggestiongs/Search Results-->
         <div id="main-listings">
             <div id="listings">
                 <?php
-
-                    // Check connection
-                    if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-                    }
-                    else{
-                        $selectSQL = "SELECT * FROM Property";
-                        $result = $conn->query($selectSQL);
-                        while($row = $result->fetch_array())
-                        {
-                            echo' 
-                            <a href="listing-detail.html" class="listing-link">
-                                <div class="listing">
-                                    <img class="listing-image" src="img/example-house.jpg" />
-                                    <h3 class="listing-address">'.$row["Address"].'</h3><br>
-                                    <h3 class="listing-city">'.$row["City"]." ".$row["Province"].'</h3><br>
-                                    <h4 class="listing-price">$'.$row["Price"].'</h4><br>
-                                    <div class="listing-extra-div1">
-                                        <p class="listing-detail">Number Of Bedrooms: </p>
-                                        <p class="listing-detail">'.$row["NumberOfBedrooms"].'</p>
-                                    </div>
-                                    <div class="listing-extra-div2">
-                                        <p class="listing-detail">Number Of Bathrooms: </p>
-                                        <p class="listing-detail">'.$row["NumberOfWashrooms"].'</p><br>
-                                    </div>
-                                </div>
-                            </a>
-                        ';
-                        }
-                    }
+                refreshList();
                 ?>
             </div>
         </div>
+    <script>
+        /* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+        function filterShowHide() {
+            var x = document.getElementById("filter-pane");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
 
     <script src="js/vendor/modernizr-3.5.0.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
