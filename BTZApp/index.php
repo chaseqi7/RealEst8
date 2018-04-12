@@ -51,6 +51,7 @@ if ( isset($_SESSION['logged_in']) && $_SESSION['logged_in'] ) {
                 echo "</li>";
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
             echo "<li id=\"account-dropdown\" class=\"dropdown\">";
             echo "<a href=\"profile.php\" class=\"dropbtn\">Profile</a>";
             echo "<div id=\"account-dropdown-content\" class=\"dropdown-content\">";
@@ -71,6 +72,8 @@ if ( isset($_SESSION['logged_in']) && $_SESSION['logged_in'] ) {
             <h3>Waiting for filters...</h3>
         </form>
 =======
+=======
+>>>>>>> a565058aee00f7e7d2a86696580c89171e3224a3
             else{
                 if (isset($_SESSION['role']) && $_SESSION['role'] === 'Admin'){
                     echo "<li class=\"dropdown\"><a href=\"accountManagement.php\">Manage Accounts</a></li>";
@@ -84,6 +87,9 @@ if ( isset($_SESSION['logged_in']) && $_SESSION['logged_in'] ) {
             }
             ?>
         </ul>
+<<<<<<< HEAD
+>>>>>>> a565058aee00f7e7d2a86696580c89171e3224a3
+=======
 >>>>>>> a565058aee00f7e7d2a86696580c89171e3224a3
     </div>
     <!--Search Bar-->
@@ -105,6 +111,37 @@ if ( isset($_SESSION['logged_in']) && $_SESSION['logged_in'] ) {
                 x.style.display = "block";
             } else {
                 x.style.display = "none";
+<<<<<<< HEAD
+=======
+            }
+        }
+    </script>
+    <!--Search Bar-->
+    <!--Suggestiongs/Search Results-->
+    <div id="main-listings">
+    <?php
+    $query = $_GET['query'];
+    // gets value sent over search form
+    $min_length = 3;
+    // you can set minimum length of the query if you want
+    if(strlen($query) >= $min_length){ // if query length is more or equal minimum length then
+        $query = htmlspecialchars($query);
+        // changes characters used in html to their equivalents, for example: < to &gt;
+        $query = $mysqli->escape_string($query);
+        // makes sure nobody uses SQL injection
+        $raw_results = $mysqli->query("SELECT * FROM property
+            WHERE (`Price` LIKE '%".$query."%') OR (`ListedDate` LIKE '%".$query."%') OR (`NumberOfBedrooms` LIKE '%".$query."%') OR (`NumberOfWashrooms` LIKE '%".$query."%') OR (`Address` LIKE '%".$query."%') OR (`City` LIKE '%".$query."%') OR (`Province` LIKE '%".$query."%') OR (`PostalCode` LIKE '%".$query."%')") or die(mysql_error());
+        // * means that it selects all fields, you can also write: `id`, `title`, `text`
+        // articles is the name of our table
+        // '%$query%' is what we're looking for, % means anything, for example if $query is Hello
+        // it will match "hello", "Hello man", "gogohello", if you want exact match use `title`='$query'
+        // or if you want to match just full word so "gogohello" is out use '% $query %' ...OR ... '$query %' ... OR ... '% $query'
+        if(mysql_num_rows($raw_results) > 0){ // if one or more rows are returned do following
+            while($results = mysql_fetch_array($raw_results)){
+                // $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
+                echo "<p><h3>".$results['title']."</h3>".$results['text']."</p>";
+                // posts results gotten from database(title and text) you can also show id ($results['id'])
+>>>>>>> a565058aee00f7e7d2a86696580c89171e3224a3
             }
         }
     </script>
