@@ -83,6 +83,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="accountManagement.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/accountManagement.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1768">
+              <caret line="109" column="34" selection-start-line="109" selection-start-column="34" selection-end-line="109" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -95,9 +104,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>center</find>
       <find>field</find>
       <find>--&gt;</find>
+      <find>center</find>
+      <find>account mana</find>
+      <find>h2</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -164,6 +175,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>

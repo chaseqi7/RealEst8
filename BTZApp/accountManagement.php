@@ -76,7 +76,7 @@ $result = $mysqli->query("
             ?>
         </ul>
     </div>
-
+    <div id="account-management-container">
     <!-- List of user -->
     <h2>List of users</h2>
     <p>
@@ -88,25 +88,25 @@ $result = $mysqli->query("
         ?>
     </p>
     <a href="createAccountPage.php"><input name="btnDeleteAccount" type="button" value="Add Account"></a>
-    <table>
+    <table id="accounts-table">
         <tr>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Role</th>
-            <th>Email</th>
-            <th></th>
+            <th class="accounts-th">First name</th>
+            <th class="accounts-th">Last name</th>
+            <th class="accounts-th">Role</th>
+            <th class="accounts-th">Email</th>
+            <th class="accounts-th"></th>
         </tr>
         <?php
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
                 echo '<tr>';
-                echo '<td>'.$row["FirstName"].'</td>';
-                echo '<td>'.$row["LastName"].'</td>';
-                echo '<td>'.$row["Description"].'</td>';
-                echo '<td>'.$row["Email"].'</td>';
-                echo '<td>
-                      <input name="btnDeleteAccount" type="button" value="Delete Account" 
+                echo '<td class="accounts-td">'.$row["FirstName"].'</td>';
+                echo '<td class="accounts-td">'.$row["LastName"].'</td>';
+                echo '<td class="accounts-td">'.$row["Description"].'</td>';
+                echo '<td class="accounts-td">'.$row["Email"].'</td>';
+                echo '<td class="accounts-td-button">
+                      <input class="accounts-button" name="btnDeleteAccount" type="button" value="Delete Account" 
                       onclick="return doConfirm('.$row["UserID"].')"/>
                       </td>';
                 echo '</tr>';
@@ -157,5 +157,6 @@ $result = $mysqli->query("
             }
         }
     </script>
+    </div>
 </body>
 </html>
