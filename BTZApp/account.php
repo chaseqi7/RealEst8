@@ -15,7 +15,7 @@ session_start();
 <head>
     <title>Sign-Up/Login Form</title>
     <?php include 'css/css.html'; ?>
-<!--    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>-->-->
+<!--    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>-->
 <!--    <script src="libraries/jquery.validate.js"></script>-->
 <!--    <script src="js/index.js"></script>-->
 <!--    <script src="js/validation.js"></script>-->
@@ -53,13 +53,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 <form name="signInForm" action="account.php" method="post" autocomplete="off">
                     <div class="field-wrap">
                         <label>
-                            Email Address<span class="req">*</span>
+                            Email Address<span class="req"></span>
                         </label>
                         <input type="email" autocomplete="off" name="email"/>
                     </div>
                     <div class="field-wrap">
                         <label>
-                            Password<span class="req">*</span>
+                            Password<span class="req"></span>
                         </label>
                         <input type="password" autocomplete="off" name="password"/>
                     </div>
@@ -73,20 +73,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     <div class="top-row">
                         <div class="field-wrap">
                             <label>
-                                First Name<span class="req">*</span>
+                                First Name<span class="req"></span>
                             </label>
                             <input type="text" autocomplete="off" name='firstname' />
                         </div>
                         <div class="field-wrap">
                             <label>
-                                Last Name<span class="req">*</span>
+                                Last Name<span class="req"></span>
                             </label>
                             <input type="text" autocomplete="off" name='lastname' />
                         </div>
                     </div>
                     <div class="field-wrap">
                         <label>
-                            Email Address<span class="req">*</span>
+                            Email Address<span class="req"></span>
                         </label>
                         <input type="email" autocomplete="off" name='email' />
                     </div>
