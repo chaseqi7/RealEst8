@@ -47,7 +47,7 @@ $result = $mysqli->query("
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
+<   <>
     <!--[if lte IE 9]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
@@ -80,6 +80,7 @@ $result = $mysqli->query("
 
     <!-- List of user -->
     <h2>List of users</h2>
+    <a href="createAccountPage.php"><input name="btnDeleteAccount" type="button" value="Add Account"></a>
     <table>
         <tr>
             <th>First name</th>
@@ -97,8 +98,9 @@ $result = $mysqli->query("
                 echo '<td>'.$row["LastName"].'</td>';
                 echo '<td>'.$row["Description"].'</td>';
                 echo '<td>'.$row["Email"].'</td>';
-                echo '<td><input name="btnDeleteAccount" type="button" value="Delete Account" 
-                      onclick="return doConfirm('.$row["UserID"].')"></input>                     
+                echo '<td>
+                      <input name="btnDeleteAccount" type="button" value="Delete Account" 
+                      onclick="return doConfirm('.$row["UserID"].')"/>
                       </td>';
                 echo '</tr>';
             }

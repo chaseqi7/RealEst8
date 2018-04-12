@@ -11,10 +11,9 @@ session_start();
 // Check if user is logged in using the session variable
 if ( isset($_SESSION['logged_in']) && $_SESSION['logged_in'] ) {
     $email = $_SESSION['email'];
-    $first_name = $_SESSION['first_name'];
-    $last_name = $_SESSION['last_name'];
+    $first_name = $_SESSION['firstname'];
+    $last_name = $_SESSION['lastname'];
     $role = $_SESSION['role'];
-    $active = $_SESSION['active'];
 }
 ?>
 <!doctype html>

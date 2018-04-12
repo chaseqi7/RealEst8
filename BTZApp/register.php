@@ -9,12 +9,6 @@
 /* Registration process, inserts user info into the database
    and sends account confirmation email message
  */
-
-// Set session variables to be used on profile.php page
-$_SESSION['email'] = $_POST['email'];
-$_SESSION['first_name'] = $_POST['firstname'];
-$_SESSION['last_name'] = $_POST['lastname'];
-
 $passwordCheckBase = $_POST['password'];
 $passwordConfirm = $_POST['confirmPassword'];
 
