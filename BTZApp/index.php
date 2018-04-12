@@ -20,15 +20,21 @@ $username = "root";
 $password = "1234";
 $dbname = "BTZDatabase";
 $conn = new mysqli($servername, $username, $password, $dbname);
+
+
 function refreshList(){
-    echo $_POST['PropertyTypeSelect'];
+
+
     // Check connection
     global $conn;
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
     else{
-        $selectSQL = "SELECT * FROM Property";
+        $selectSQL = "SELECT * FROM Property ";
+        if (isset($_POST['PropertyTypeSelect'])) {
+            $selectSQL=$selectSQL."WHERE PropertyType=".$_POST['PropertyTypeSelect'];
+        }
         $result = $conn->query($selectSQL);
         while($row = $result->fetch_array())
         {
@@ -52,6 +58,7 @@ function refreshList(){
         }
     }
 }
+
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -106,9 +113,9 @@ function refreshList(){
             <form id="select-panels" method="post">
 
                 <input id="mainSearchBar" type="text" name="search" placeholder="Search..">
-                <button id="searchButton" name="searchButton">Search</button>
+                <input type="submit" id="searchButton" name="searchButton" value="Search" />
 
-                <input type="button" onclick="filterShowHide()" id="filter-button">Filters</input>
+                <input type="button" onclick="filterShowHide()" id="filter-button" value="Filters"/>
 
                 <div id="filter-pane" style="display: none">
 
