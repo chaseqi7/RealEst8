@@ -20,17 +20,17 @@ if(isset($_POST['id']) && !empty($_POST['id']))
     if ($result)
     {
         $message = "Account has been deleted successfully!";
-        $_SESSION['addAccountMessage'] = "Something was wrong, failed to delete account!";
+        $_SESSION['accountMessage'] = "Something was wrong, failed to delete account!";
 
         header("location: accountManagement.php");
     }
     else {
-        $_SESSION['addAccountMessage'] = "Something was wrong, failed to delete account!";
+        $_SESSION['accountMessage'] = "Something was wrong, failed to delete account!";
         header("location: accountManagement.php");
     }
 }
 else {
-    $_SESSION['message'] = "Please access this page from account management tab!";
+    $_SESSION['message'] = "Please access this page from account management tab!".$mysqli->error;
     header("location: error.php");
 }
 ?>

@@ -21,7 +21,6 @@ else {
     $first_name = $_SESSION['first_name'];
     $last_name = $_SESSION['last_name'];
     $role = $_SESSION['role'];
-    $active = $_SESSION['active'];
 }
 
 $result = $mysqli->query("SELECT * FROM UserT WHERE Email='$email'");

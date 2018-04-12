@@ -23,7 +23,6 @@ else {
     $first_name = $_SESSION['first_name'];
     $last_name = $_SESSION['last_name'];
     $role = $_SESSION['role'];
-    $active = $_SESSION['active'];
 }
 
 $result = $mysqli->query("
@@ -47,7 +46,7 @@ $result = $mysqli->query("
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
-<   <>
+<body>
     <!--[if lte IE 9]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
@@ -82,10 +81,10 @@ $result = $mysqli->query("
     <h2>List of users</h2>
     <p>
         <?php
-        if( isset($_SESSION['addAccountMessage']) AND !empty($_SESSION['addAccountMessage']) ):
+        if( isset($_SESSION['addAccountMessage']) && !empty($_SESSION['addAccountMessage']) ){
             echo $_SESSION['addAccountMessage'];
             unset($_SESSION['addAccountMessage']);
-        endif;
+        }
         ?>
     </p>
     <a href="createAccountPage.php"><input name="btnDeleteAccount" type="button" value="Add Account"></a>
@@ -112,9 +111,14 @@ $result = $mysqli->query("
                       </td>';
                 echo '</tr>';
             }
-            ?>
-        </table>
-    </div>
+        }else {
+            echo
+            '<div class="info">
+                0 results
+            </div>';
+        }
+        ?>
+    </table>
     <?php
     $clickedDelete= $_POST['btnDeleteAccount'];
     if ($clickedDelete)
@@ -147,7 +151,7 @@ $result = $mysqli->query("
                     }
                 }
 
-                xmlhttp.open("POST", "deleteAccount?id=" + id);
+                xmlhttp.open("POST", "deleteAccount.php?id=" + id);
                 // file name where delete code is written
                 xmlhttp.send();
             }
