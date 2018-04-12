@@ -88,25 +88,25 @@ $result = $mysqli->query("SELECT * FROM UserT WHERE Email='$email'");
             // output data of each row
             while($row = $result->fetch_assoc()) {
                 echo '<label>First name:</label>';
-                echo '<p>'.$row["FirstName"].'</p>'."<br>";
+                echo '<p>'.$row["FirstName"].'</p>'.'<br>';
                 echo '<label>Last name:</label>';
-                echo '<p>'.$row["LastName"].'</p>'."<br>";
+                echo '<p>'.$row["LastName"].'</p>'.'<br>';
                 echo '<label>Address:</label>';
-                echo '<p>'.$row["Address"].'</p>'."<br>";
+                echo '<p>'.$row["Address"].'</p>'.'<br>';
                 echo '<label>City:</label>';
-                echo '<p>'.$row["City"].'</p>'."<br>";
+                echo '<p>'.$row["City"].'</p>'.'<br>';
                 echo '<label>Province:</label>';
-                echo '<p>'.$row["Province"].'</p>'."<br>";
+                echo '<p>'.$row["Province"].'</p>'.'<br>';
                 echo '<label>PostalCode:</label>';
-                echo '<p>'.$row["PostalCode"].'</p>'."<br>";
+                echo '<p>'.$row["PostalCode"].'</p>'.'<br>';
                 echo '<label>PhoneNumber:</label>';
-                echo '<p>'.$row["PhoneNumber"].'</p>'."<br>";
+                echo '<p>'.$row["PhoneNumber"].'</p>'.'<br>';
             }
         } else {
             echo
             '<div class="info">
-                  0 results
-                  </div>';
+                0 results
+            </div>';
         }
         ?>
     </table>
