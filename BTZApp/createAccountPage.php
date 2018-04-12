@@ -99,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 echo "</select>";
                 ?>
             </div>
-            <input name="addAccountBtn" type="button" value="Add Account"/>Add Account</button>
+            <input name="addAccountBtn" type="button" value="Add Account"/></button>
         </form>
     </div> <!-- /form -->
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

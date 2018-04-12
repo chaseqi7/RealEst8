@@ -47,6 +47,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             <li class="tab active"><a href="#login">Log In</a></li>
             <li class="tab"><a href="#signup">Sign Up</a></li>
         </ul>
+        <p>
+            <?php
+            if( isset($_SESSION['messageLogin']) AND !empty($_SESSION['messageLogin']) ):
+                echo $_SESSION['messageLogin'];
+            endif;
+            ?>
+        </p>
         <div class="tab-content">
             <div id="login">
                 <h1>Welcome Back!</h1>

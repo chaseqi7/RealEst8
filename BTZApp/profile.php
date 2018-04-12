@@ -61,46 +61,11 @@ $result = $mysqli->query("SELECT * FROM UserT WHERE Email='$email'");
 </div>
 <div id="profile-page">
     <h2>Welcome <?php echo $first_name.' '.$last_name; ?></h2>
-    <p>
-        <?php
-        // Display message about account verification link only once
-        if ( isset($_SESSION['message']) )
-        {
-            echo $_SESSION['message'];
-            // Don't annoy the user with more messages upon page refresh
-            unset( $_SESSION['message'] );
-        }
-        ?>
-    </p>
-    <?php
-    // Keep reminding the user this account is not active, until they activate
-    if ( !$active ){
-        echo
-        '<div class="info">
-              Account is unverified, please confirm your email by clicking
-              on the email link!
-        </div><br>';
-    }
-    ?>
     <table>
         <?php
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                echo '<label>First name:</label>';
-                echo '<p>'.$row["FirstName"].'</p>'.'<br>';
-                echo '<label>Last name:</label>';
-                echo '<p>'.$row["LastName"].'</p>'.'<br>';
-                echo '<label>Address:</label>';
-                echo '<p>'.$row["Address"].'</p>'.'<br>';
-                echo '<label>City:</label>';
-                echo '<p>'.$row["City"].'</p>'.'<br>';
-                echo '<label>Province:</label>';
-                echo '<p>'.$row["Province"].'</p>'.'<br>';
-                echo '<label>PostalCode:</label>';
-                echo '<p>'.$row["PostalCode"].'</p>'.'<br>';
-                echo '<label>PhoneNumber:</label>';
-                echo '<p>'.$row["PhoneNumber"].'</p>'.'<br>';
                 echo '<tr>';
                 echo '<th align="left">First name:</th>';
                 echo '<td align="right">'.$row["FirstName"].'</td>';

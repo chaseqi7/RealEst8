@@ -13,8 +13,8 @@ $email = $mysqli->escape_string($_POST['email']);
 $result = $mysqli->query("SELECT * FROM UserT WHERE Email='$email'");
 
 if ( $result->num_rows == 0 ){ // User doesn't exist
-    $_SESSION['message'] = "User with that email doesn't exist!";
-    header("location: error.php");
+    $_SESSION['messageLogin'] = "User with that email doesn't exist!";
+    header("location: account.php");
 }
 else { // User exists
     $user = $result->fetch_assoc();
@@ -34,7 +34,7 @@ else { // User exists
         header("location: index.php");
     }
     else {
-        $_SESSION['message'] = "You have entered wrong password, try again!";
-        header("location: error.php");
+        $_SESSION['messageLogin'] = "You have entered wrong password, try again!";
+        header("location: account.php");
     }
 }
