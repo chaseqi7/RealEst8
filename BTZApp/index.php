@@ -50,12 +50,17 @@ if ( isset($_SESSION['logged_in']) && $_SESSION['logged_in'] ) {
                 echo "<a href=\"account.php\" class=\"dropbtn\">Sign in</a>";
                 echo "</li>";
             }
-            echo "<li id=\"account-dropdown\" class=\"dropdown\">";
-            echo "<a href=\"profile.php\" class=\"dropbtn\">Profile</a>";
-            echo "<div id=\"account-dropdown-content\" class=\"dropdown-content\">";
-            echo "<a href=\"logout.php\">Sign out</a>";
-            echo "</div>";
-            echo "</li>";
+            else {
+                echo "<li id=\"account-dropdown\" class=\"dropdown\">";
+                echo "<a href=\"profile.php\" class=\"dropbtn\">Profile</a>";
+                echo "<div id=\"account-dropdown-content\" class=\"dropdown-content\">";
+                if (isset($_SESSION['role']) && $_SESSION['role'] === 'Admin'){
+                    echo "<a href=\"accountManagement.php\">Manage Accounts</a>";
+                }
+                echo "<a href=\"logout.php\">Sign out</a>";
+                echo "</div>";
+                echo "</li>";
+            }
             ?>
         </ul>
     </div>
@@ -115,42 +120,42 @@ if ( isset($_SESSION['logged_in']) && $_SESSION['logged_in'] ) {
         }
         ?>
 
-        <!--            <h2>Suggestions</h2><!--Should change 'Results' when someone searches for something-->
-        <!--        <div id="listings">-->
-        <!--            <a href="listing-detail.html" class="listing-link">-->
-        <!--                <div class="listing">-->
-        <!--                    <img class="listing-image" src="img/example-house.jpg" />-->
-        <!--                    <h3 class="listing-address">123 The Best Street</h3><br>-->
-        <!--                    <h3 class="listing-city">Kitchener ON</h3><br>-->
-        <!--                    <h4 class="listing-price">$150 000</h4><br>-->
-        <!--                    <div class="listing-extra-div1">-->
-        <!--                        <p class="listing-detail">Detail Label: </p>-->
-        <!--                        <p class="listing-detail">77 Rooms</p>-->
-        <!--                    </div>-->
-        <!--                    <div class="listing-extra-div2">-->
-        <!--                        <p class="listing-detail">Detail Label: </p>-->
-        <!--                        <p class="listing-detail">8 Bathrooms</p><br>-->
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!--            </a>-->
-        <!--            <a href="listing-detail.html" class="listing-link">-->
-        <!--                <div class="listing">-->
-        <!--                    <img class="listing-image" src="img/example-house2.jpg" />-->
-        <!--                    <h3 class="listing-address">123 The Best Street</h3><br>-->
-        <!--                    <h3 class="listing-city">Kitchener ON</h3><br>-->
-        <!--                    <h4 class="listing-price">$150 000</h4><br>-->
-        <!--                    <div class="listing-extra-div1">-->
-        <!--                        <p class="listing-detail">Detail Label: </p>-->
-        <!--                        <p class="listing-detail">77 Rooms</p>-->
-        <!--                    </div>-->
-        <!--                    <div class="listing-extra-div2">-->
-        <!--                        <p class="listing-detail">Detail Label: </p>-->
-        <!--                        <p class="listing-detail">8 Bathrooms</p><br>-->
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!--            </a>-->
-        <!--        </div>-->
-        <!--    </div>-->
+                    <h2>Suggestions</h2><!--Should change 'Results' when someone searches for something-->
+                <div id="listings">
+                    <a href="listing-detail.html" class="listing-link">
+                        <div class="listing">
+                            <img class="listing-image" src="img/example-house.jpg" />
+                            <h3 class="listing-address">123 The Best Street</h3><br>
+                            <h3 class="listing-city">Kitchener ON</h3><br>
+                            <h4 class="listing-price">$150 000</h4><br>
+                            <div class="listing-extra-div1">
+                                <p class="listing-detail">Detail Label: </p>
+                                <p class="listing-detail">77 Rooms</p>
+                            </div>
+                            <div class="listing-extra-div2">
+                                <p class="listing-detail">Detail Label: </p>
+                                <p class="listing-detail">8 Bathrooms</p><br>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="listing-detail.html" class="listing-link">
+                        <div class="listing">
+                            <img class="listing-image" src="img/example-house2.jpg" />
+                            <h3 class="listing-address">123 The Best Street</h3><br>
+                            <h3 class="listing-city">Kitchener ON</h3><br>
+                            <h4 class="listing-price">$150 000</h4><br>
+                            <div class="listing-extra-div1">
+                                <p class="listing-detail">Detail Label: </p>
+                                <p class="listing-detail">77 Rooms</p>
+                            </div>
+                            <div class="listing-extra-div2">
+                                <p class="listing-detail">Detail Label: </p>
+                                <p class="listing-detail">8 Bathrooms</p><br>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
 
     <script src="js/vendor/modernizr-3.5.0.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>

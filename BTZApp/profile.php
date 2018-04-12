@@ -46,12 +46,12 @@ $result = $mysqli->query("SELECT * FROM UserT WHERE Email='$email'");
             echo "</li>";
         }
         else{
-            if (isset($_SESSION['role']) && $_SESSION['role'] === 'Admin'){
-                echo "<li class=\"dropdown\"><a href=\"accountManagement.php\">Manage Accounts</a></li>";
-            }
             echo "<li id=\"account-dropdown\" class=\"dropdown\">";
             echo "<a href=\"profile.php\" class=\"dropbtn\">Profile</a>";
             echo "<div id=\"account-dropdown-content\" class=\"dropdown-content\">";
+            if (isset($_SESSION['role']) && $_SESSION['role'] === 'Admin'){
+                echo "<a href=\"accountManagement.php\">Manage Accounts</a>";
+            }
             echo "<a href=\"logout.php\">Sign out</a>";
             echo "</div>";
             echo "</li>";

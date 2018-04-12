@@ -40,29 +40,10 @@ if($passwordCheckBase === $passwordConfirm) {
 
         // Add user to the database
         if ($mysqli->query($sql)) {
-
-            $_SESSION['active'] = 0; //0 until user activates their account with verify.php
             $_SESSION['logged_in'] = true; // So we know the user has logged in
             $_SESSION['message'] =
-
-                "Confirmation link has been sent to $email, please verify
-                your account by clicking on the link in the message!";
-
-            // Send registration confirmation link (verify.php)
-            $to = $email;
-            $subject = 'Account Verification';
-            $message_body = '
-            Hello ' . $first_name . ',
-    
-            Thank you for signing up!
-    
-            Please click this link to activate your account:
-    
-            http://localhost/BTZApp/php/verify.php?email=' . $email;
-
-            mail($to, $subject, $message_body);
-
-            header("location: profile.php");
+                "You have successfully registered, please log in!";
+            header("location: success.php");
         } else {
             $_SESSION['message'] = 'Registration failed!';
             header("location: error.php");

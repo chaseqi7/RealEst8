@@ -63,13 +63,13 @@ $result = $mysqli->query("
                 echo "<a href=\"account.php\" class=\"dropbtn\">Sign in</a>";
                 echo "</li>";
             }
-            else{
-                if (isset($_SESSION['role']) && $_SESSION['role'] === 'Admin'){
-                    echo "<li class=\"dropdown\"><a href=\"accountManagement.php\">Manage Accounts</a></li>";
-                }
+            else {
                 echo "<li id=\"account-dropdown\" class=\"dropdown\">";
                 echo "<a href=\"profile.php\" class=\"dropbtn\">Profile</a>";
                 echo "<div id=\"account-dropdown-content\" class=\"dropdown-content\">";
+                if (isset($_SESSION['role']) && $_SESSION['role'] === 'Admin'){
+                    echo "<a href=\"accountManagement.php\">Manage Accounts</a>";
+                }
                 echo "<a href=\"logout.php\">Sign out</a>";
                 echo "</div>";
                 echo "</li>";
@@ -97,9 +97,9 @@ $result = $mysqli->query("
                 echo '<td>'.$row["LastName"].'</td>';
                 echo '<td>'.$row["Description"].'</td>';
                 echo '<td>'.$row["Email"].'</td>';
-                echo '<input name="btnDeleteAccount" type="button" value="Delete Account" 
-                      onclick="return doConfirm('.$row["UserID"].')">                      
-                      </input>';
+                echo '<td><input name="btnDeleteAccount" type="button" value="Delete Account" 
+                      onclick="return doConfirm('.$row["UserID"].')"></input>                     
+                      </td>';
                 echo '</tr>';
             }
         } else {
