@@ -15,8 +15,6 @@ if ( isset($_SESSION['logged_in']) && $_SESSION['logged_in'] ) {
     $last_name = $_SESSION['lastname'];
     $role = $_SESSION['role'];
 }
-
-
 $servername = "localhost:3306";
 $username = "root";
 $password = "1234";
@@ -74,45 +72,74 @@ $conn = new mysqli($servername, $username, $password, $dbname);
     <div id="search-container" align="center">
         <input id="mainSearchBar" type="text" name="search" placeholder="Search..">
         <button id="searchButton" name="searchButton">Search</button>
-        <!--<button onclick="filterShowHide()" id="filter-button">Filters</button>-->
-        <?php
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-            else{
-                $result = $conn->query("SELECT * FROM PropertyType ORDER BY PropertyTypeID");
-                echo "<select name='roleSelect'>";
-                while ($row = $result->fetch_assoc()) {
-                    echo "<option value='" . $row['RoleID'] . "'>".$row['Description']."</option>";
-                }
-                echo "</select>";
-                $result = $conn->query("SELECT * FROM BuildingType ORDER BY BuildingTypeID");
-                echo "<select name='roleSelect'>";
-                while ($row = $result->fetch_assoc()) {
-                    echo "<option value='" . $row['RoleID'] . "'>".$row['Description']."</option>";
-                }
-                echo "</select>";
-                $result = $conn->query("SELECT * FROM Ownership ORDER BY OwnershipID");
-                echo "<select name='roleSelect'>";
-                while ($row = $result->fetch_assoc()) {
-                    echo "<option value='" . $row['RoleID'] . "'>".$row['Description']."</option>";
-                }
-                echo "</select>";
-                $result = $conn->query("SELECT * FROM SaleOrRent ORDER BY SaleOrRentID");
-                echo "<select name='roleSelect'>";
-                while ($row = $result->fetch_assoc()) {
-                    echo "<option value='" . $row['RoleID'] . "'>".$row['Description']."</option>";
-                }
-                echo "</select>";
-                echo "<select name='roleSelect'>";
-
-                echo "</select>";
-            }
-        ?>
+        <button onclick="filterShowHide()" id="filter-button">Filters</button>
 
         <div id="filter-pane" style="display: none">
-            <form>
-                <h3>Waiting for filters...</h3>
+            <form id="select-panels">
+                <?php
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                else{
+                    $result = $conn->query("SELECT * FROM PropertyType ORDER BY PropertyTypeID");
+                    echo "<select name='PropertyTypeSelect'><option selected disabled>Property Type</option>";
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<option value='" . $row['PropertyTypeID'] . "'>".$row['Description']."</option>";
+                    }
+                    echo "</select>";
+
+                    $result = $conn->query("SELECT * FROM BuildingType ORDER BY BuildingTypeID");
+                    echo "<select name='BuildingTypeSelect'><option selected disabled>Building Type</option>";
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<option value='" . $row['BuildingTypeID'] . "'>".$row['Description']."</option>";
+                    }
+                    echo "</select>";
+
+                    $result = $conn->query("SELECT * FROM Ownership ORDER BY OwnershipID");
+                    echo "<select name='OwnershipSelect'><option selected disabled>Owner ship</option>";
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<option value='" . $row['OwnershipID'] . "'>".$row['Description']."</option>";
+                    }
+                    echo "</select>";
+
+                    $result = $conn->query("SELECT * FROM SaleOrRent ORDER BY SaleOrRentID");
+                    echo "<select name='SaleOrRentSelect'><option selected disabled>Sale Or Rent</option>";
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<option value='" . $row['SaleOrRentID'] . "'>".$row['Description']."</option>";
+                    }
+                    echo "</select>";
+
+                    echo "<select name='UpperLimit'><option selected disabled>Upper Price Limit</option>";
+                    for ($k = 0 ; $k < 1000000; $k=$k+100000){
+                        echo "<option value='" . $k . "'>" . $k . "</option>";
+                    }
+                    echo "</select>";
+
+                    echo "<select name='LowerLimit'><option selected disabled>Lower Price Limit</option>";
+                    for ($k = 0 ; $k < 1000000; $k=$k+100000){
+                        echo "<option value='" . $k . "'>" . $k . "</option>";
+                    }
+                    echo "</select>";
+
+                    echo "<select name='NumberOfBedroomsSelect'><option selected disabled>Number Of Bedrooms</option>";
+                    for ($k = 1 ; $k < 5; $k++){
+                        echo "<option value='" . $k . "'>" . $k . "</option>";
+                    }
+                    echo "<option value=\"5\">5+</option></select>";
+
+                    echo "<select name='NumberOfWashroomsSelect'><option selected disabled>Number Of Bathrooms</option>";
+                    for ($k = 1 ; $k < 5; $k++){
+                        echo "<option value='" . $k . "'>" . $k . "</option>";
+                    }
+                    echo "<option value=\"5\">5+</option></select>";
+                }
+                ?>
+                <select name="OpenHouseSelect">
+                    <option selected disabled>Open House</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+
             </form>
         </div>
         <script>
