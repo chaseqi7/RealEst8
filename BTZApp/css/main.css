@@ -123,7 +123,7 @@ textarea.error {
     margin-bottom: 0%;
 }
 
-#filter-button {
+#searchButton {
     background-color: rebeccapurple;
     border: 2px solid rebeccapurple;
     color: white;
@@ -133,6 +133,17 @@ textarea.error {
     display: inline-block;
     font-size: 16px;
 }
+
+/*#filter-button {*/
+    /*background-color: rebeccapurple;*/
+    /*border: 2px solid rebeccapurple;*/
+    /*color: white;*/
+    /*padding: 12px 18px;*/
+    /*text-align: center;*/
+    /*text-decoration: none;*/
+    /*display: inline-block;*/
+    /*font-size: 16px;*/
+/*}*/
 #filter-button:hover {
     background-color: #51287A;
     cursor: pointer;

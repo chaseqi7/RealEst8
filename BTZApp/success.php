@@ -23,11 +23,11 @@ session_start();
         if( isset($_SESSION['message']) AND !empty($_SESSION['message']) ):
             echo $_SESSION['message'];
         else:
-            header( "location: account.php" );
+            header( "location: index.php" );
         endif;
         ?>
     </p>
-    <a href="account.php"><button class="button button-block"/>Home</button></a>
+    <a href="index.php"><button class="button button-block"/>Home</button></a>
 </div>
 </body>
 </html>

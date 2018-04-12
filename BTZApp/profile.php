@@ -87,6 +87,20 @@ $result = $mysqli->query("SELECT * FROM UserT WHERE Email='$email'");
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
+                echo '<label>First name:</label>';
+                echo '<p>'.$row["FirstName"].'</p>'.'<br>';
+                echo '<label>Last name:</label>';
+                echo '<p>'.$row["LastName"].'</p>'.'<br>';
+                echo '<label>Address:</label>';
+                echo '<p>'.$row["Address"].'</p>'.'<br>';
+                echo '<label>City:</label>';
+                echo '<p>'.$row["City"].'</p>'.'<br>';
+                echo '<label>Province:</label>';
+                echo '<p>'.$row["Province"].'</p>'.'<br>';
+                echo '<label>PostalCode:</label>';
+                echo '<p>'.$row["PostalCode"].'</p>'.'<br>';
+                echo '<label>PhoneNumber:</label>';
+                echo '<p>'.$row["PhoneNumber"].'</p>'.'<br>';
                 echo '<tr>';
                 echo '<th align="left">First name:</th>';
                 echo '<td align="right">'.$row["FirstName"].'</td>';
@@ -119,8 +133,8 @@ $result = $mysqli->query("SELECT * FROM UserT WHERE Email='$email'");
         } else {
             echo
             '<div class="info">
-                  0 results
-                  </div>';
+                0 results
+            </div>';
         }
         ?>
     </table>

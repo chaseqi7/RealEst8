@@ -5,14 +5,15 @@
  * Date created: 2018-04-08
  * File name: index.php
  */
-/* Main page with two forms: sign up and log in */
+
 require 'db.php';
 session_start();
-if ( $_SESSION['logged_in'] == 1 ) {
-    // Makes it easier to read
+// Check if user is logged in using the session variable
+if ( isset($_SESSION['logged_in']) && $_SESSION['logged_in'] ) {
+    $email = $_SESSION['email'];
     $first_name = $_SESSION['first_name'];
     $last_name = $_SESSION['last_name'];
-    $email = $_SESSION['email'];
+    $role = $_SESSION['role'];
     $active = $_SESSION['active'];
 }
 ?>
@@ -34,25 +35,22 @@ if ( $_SESSION['logged_in'] == 1 ) {
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<!--[if lte IE 9]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-<![endif]-->
+    <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
 
-<!-- Add your site or application content here -->
-<!--Navbar-->
-<div id="nav-bar">
-    <ul class="navbar">
-        <li class="navTitle"><a href="index.php">Real Est8</a></li>
-        <?php
-        if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']){
-            echo "<li id=\"account-dropdown\" class=\"dropdown\">";
-            echo "<a href=\"account.php\" class=\"dropbtn\">Sign in</a>";
-            echo "</li>";
-        }
-        else{
-            if (isset($_SESSION['role']) && $_SESSION['role'] === 'Admin'){
-                echo "<li class=\"dropdown\"><a href=\"accountManagement.php\">Manage Accounts</a></li>";
+    <!-- Add your site or application content here -->
+    <!--Navbar-->
+    <div id="nav-bar">
+        <ul class="navbar">
+            <li class="navTitle"><a href="index.php">Real Est8</a></li>
+            <?php
+            if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']){
+                echo "<li id=\"account-dropdown\" class=\"dropdown\">";
+                echo "<a href=\"account.php\" class=\"dropbtn\">Sign in</a>";
+                echo "</li>";
             }
+<<<<<<< HEAD
             echo "<li id=\"account-dropdown\" class=\"dropdown\">";
             echo "<a href=\"profile.php\" class=\"dropbtn\">Profile</a>";
             echo "<div id=\"account-dropdown-content\" class=\"dropdown-content\">";
@@ -66,61 +64,57 @@ if ( $_SESSION['logged_in'] == 1 ) {
 <!--Search Bar-->
 <div id="search-container" align="center">
     <input id="mainSearchBar" type="text" name="search" placeholder="Search..">
-    <button onclick="filterShowHide()" id="filter-button">Filters</button>
+    <button id="searchButton" name="searchButton">Search</button>
+    <!--<button onclick="filterShowHide()" id="filter-button">Filters</button>-->
     <div id="filter-pane" style="display: none">
         <form>
             <h3>Waiting for filters...</h3>
         </form>
+=======
+            else{
+                if (isset($_SESSION['role']) && $_SESSION['role'] === 'Admin'){
+                    echo "<li class=\"dropdown\"><a href=\"accountManagement.php\">Manage Accounts</a></li>";
+                }
+                echo "<li id=\"account-dropdown\" class=\"dropdown\">";
+                echo "<a href=\"profile.php\" class=\"dropbtn\">Profile</a>";
+                echo "<div id=\"account-dropdown-content\" class=\"dropdown-content\">";
+                echo "<a href=\"logout.php\">Sign out</a>";
+                echo "</div>";
+                echo "</li>";
+            }
+            ?>
+        </ul>
+>>>>>>> a565058aee00f7e7d2a86696580c89171e3224a3
     </div>
-</div>
-<script>
-    /* When the user clicks on the button,
-    toggle between hiding and showing the dropdown content */
-    function filterShowHide() {
-        var x = document.getElementById("filter-pane");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-</script>
-<!--Search Bar-->
-<!--Suggestiongs/Search Results-->
-<div id="main-listings">
-    <?php
-    $query = $_GET['query'];
-    // gets value sent over search form
-    $min_length = 3;
-    // you can set minimum length of the query if you want
-    if(strlen($query) >= $min_length){ // if query length is more or equal minimum length then
-        $query = htmlspecialchars($query);
-        // changes characters used in html to their equivalents, for example: < to &gt;
-        $query = $mysqli->escape_string($query);
-        // makes sure nobody uses SQL injection
-        $raw_results = $mysqli->query("SELECT * FROM property
-            WHERE (`Price` LIKE '%".$query."%') OR (`ListedDate` LIKE '%".$query."%') OR (`NumberOfBedrooms` LIKE '%".$query."%') OR (`NumberOfWashrooms` LIKE '%".$query."%') OR (`Address` LIKE '%".$query."%') OR (`City` LIKE '%".$query."%') OR (`Province` LIKE '%".$query."%') OR (`PostalCode` LIKE '%".$query."%')") or die(mysql_error());
-        // * means that it selects all fields, you can also write: `id`, `title`, `text`
-        // articles is the name of our table
-        // '%$query%' is what we're looking for, % means anything, for example if $query is Hello
-        // it will match "hello", "Hello man", "gogohello", if you want exact match use `title`='$query'
-        // or if you want to match just full word so "gogohello" is out use '% $query %' ...OR ... '$query %' ... OR ... '% $query'
-        if(mysql_num_rows($raw_results) > 0){ // if one or more rows are returned do following
-            while($results = mysql_fetch_array($raw_results)){
-                // $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
-                echo "<p><h3>".$results['title']."</h3>".$results['text']."</p>";
-                // posts results gotten from database(title and text) you can also show id ($results['id'])
+    <!--Search Bar-->
+    <div id="search-container" align="center">
+        <input id="mainSearchBar" type="text" name="search" placeholder="Search..">
+        <button onclick="filterShowHide()" id="filter-button">Filters</button>
+        <div id="filter-pane" style="display: none">
+            <form>
+                <h3>Waiting for filters...</h3>
+            </form>
+        </div>
+    </div>
+    <script>
+        /* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+        function filterShowHide() {
+            var x = document.getElementById("filter-pane");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
             }
         }
-        else{ // if there is no matching rows do following
-            echo "No results";
-        }
-    }
-    else{ // if query length is less than minimum
-        echo "Minimum length is ".$min_length;
-    }
+    </script>
+    <!--Search Bar-->
+    <!--Suggestiongs/Search Results-->
+    <div id="main-listings">
+    <?php
+
     ?>
-    <!--            <h2>Suggestions</h2><!--Should change 'Results' when someone searches for something-->-->
+    <!--            <h2>Suggestions</h2><!--Should change 'Results' when someone searches for something-->
     <!--        <div id="listings">-->
     <!--            <a href="listing-detail.html" class="listing-link">-->
     <!--                <div class="listing">-->
