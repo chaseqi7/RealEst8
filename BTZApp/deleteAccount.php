@@ -9,13 +9,12 @@
 require 'db.php';
 session_start();
 
-// Make
 if(isset($_POST['id']) && !empty($_POST['id']))
 {
-    $id = $mysqli->escape_string($_POST['id']);
+    $id = (int)$_POST['id'];
 
     // Select user with matching email and hash, who hasn't verified their account yet (active = 0)
-    $result = $mysqli->query("DELETE FROM UserT WHERE UserID='$id'") or die($mysqli->error);
+    $result = $mysqli->query("DELETE FROM UserT WHERE UserID=$id") or die($mysqli->error);
 
     if ($result)
     {
@@ -30,7 +29,7 @@ if(isset($_POST['id']) && !empty($_POST['id']))
     }
 }
 else {
-    $_SESSION['message'] = "Please access this page from account management tab!".$mysqli->error;
-    header("location: error.php");
+    $_SESSION['accountMessage'] = "Please access this page from account management tab!".$mysqli->error;
+    header("location: accountManagement.php");
 }
 ?>

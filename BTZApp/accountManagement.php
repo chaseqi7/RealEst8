@@ -83,7 +83,6 @@ $result = $mysqli->query("
         <?php
         if( isset($_SESSION['addAccountMessage']) && !empty($_SESSION['addAccountMessage']) ){
             echo $_SESSION['addAccountMessage'];
-            unset($_SESSION['addAccountMessage']);
         }
         ?>
     </p>
