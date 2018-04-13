@@ -72,6 +72,11 @@ function refreshList(){
         if (isset($_POST['OpenHouseSelect'])) {
             $filterStrings=$filterStrings."OpenHouse=".$_POST['OpenHouseSelect']." AND ";
         }
+
+        if (isset($_POST['search']) AND $_POST['search']!='') {
+            $filterStrings=$filterStrings."(Address LIKE '%".$_POST['search']."%' OR City LIKE '%".$_POST['search']."%' OR Province LIKE '%".$_POST['search']."%' OR PostalCode LIKE '%".$_POST['search']."%') AND ";
+        }
+
         $SQLString=substr($selectSQL.$filterStrings, 0, -4);
         $result = $conn->query($SQLString);
         while($row = $result->fetch_array())
@@ -87,7 +92,7 @@ function refreshList(){
                                         <p class="listing-detail">'.$row["NumberOfBedrooms"].'</p>
                                     </div>
                                     <div class="listing-extra-div2">
-                                        <p class="listing-detail">Number Of Bathrooms: </p>
+                                        <p class="listing-detail">Number Of Washrooms: </p>
                                         <p class="listing-detail">'.$row["NumberOfWashrooms"].'</p><br>
                                     </div>
                                 </div>
@@ -209,7 +214,7 @@ function refreshList(){
                     }
                     echo "<option value=\"5\">5+</option></select>";
 
-                    echo "<select name='NumberOfWashroomsSelect' class='filter-option'><option selected disabled>Number Of Bathrooms</option>";
+                    echo "<select name='NumberOfWashroomsSelect' class='filter-option'><option selected disabled>Number Of Washrooms</option>";
                     for ($k = 1 ; $k < 5; $k++){
                         echo "<option value='" . $k . "'>" . $k . "</option>";
                     }
