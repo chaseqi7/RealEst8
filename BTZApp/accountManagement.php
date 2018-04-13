@@ -81,9 +81,9 @@ $result = $mysqli->query("
     <h2>List of Users</h2>
     <p>
         <?php
-        if( isset($_SESSION['addAccountMessage']) && !empty($_SESSION['addAccountMessage']) ){
-            echo $_SESSION['addAccountMessage'];
-        }
+        if( isset($_SESSION['accountMessage']) AND !empty($_SESSION['accountMessage']) ):
+            echo $_SESSION['accountMessage'];
+        endif;
         ?>
     </p>
     <a href="createAccountPage.php"><input name="addAccount" id="addAccount" type="button" value="Add Account"></a>
@@ -118,20 +118,6 @@ $result = $mysqli->query("
         }
         ?>
     </table>
-    <?php
-    $clickedDelete= $_POST['btnDeleteAccount'];
-    if ($clickedDelete)
-    {
-        if (isset($_POST['login'])) { //user logging in
-            require 'login.php';
-        }
-        elseif (isset($_POST['register'])) {
-            //user registering
-            require 'register.php';
-        }
-    }
-    ?>
-
     <script language="JavaScript" type="text/javascript">
         function doConfirm(id) {
             var ok = confirm("Are you sure to Delete?");
@@ -143,16 +129,15 @@ $result = $mysqli->query("
                     // code for IE6, IE5
                     xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
                 }
-
+                xmlhttp.open("POST", "deleteAccount.php",true);
                 xmlhttp.onreadystatechange = function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                         window.location = "deleteAccount.php";
                     }
                 }
-
-                xmlhttp.open("POST", "deleteAccount.php?id=" + id);
+                xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 // file name where delete code is written
-                xmlhttp.send();
+                xmlhttp.send("id=" +id);
             }
         }
     </script>

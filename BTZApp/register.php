@@ -25,8 +25,8 @@ $result = $mysqli->query("SELECT * FROM UserT WHERE Email='$email'") or die($mys
 if($passwordCheckBase === $passwordConfirm) {
     // We know user email exists if the rows returned are more than 0
     if ($result->num_rows > 0) {
-        $_SESSION['message'] = 'User with this email already exists!';
-        header("location: error.php");
+        $_SESSION['messageLogin'] = 'User with this email already exists!';
+        header("location: account.php");
     } else { // Email doesn't already exist in a database, proceed...
         // active is 0 by DEFAULT (no need to include it here)
         $sql = "INSERT INTO UserT (Email,Password,FirstName,LastName,Role,PhoneNumber) 
@@ -35,16 +35,16 @@ if($passwordCheckBase === $passwordConfirm) {
         // Add user to the database
         if ($mysqli->query($sql)) {
             $_SESSION['logged_in'] = true; // So we know the user has logged in
-            $_SESSION['message'] =
+            $_SESSION['messageLogin'] =
                 "You have successfully registered, please log in!";
-            header("location: success.php");
+            header("location: account.php");
         } else {
-            $_SESSION['message'] = 'Registration failed!';
-            header("location: error.php");
+            $_SESSION['messageLogin'] = 'Registration failed!';
+            header("location: account.php");
         }
     }
 }
 else {
-    $_SESSION['message'] = 'Passwords did not match';
-    header("location: error.php");
+    $_SESSION['messageLogin'] = 'Passwords did not match';
+    header("location: account.php");
 }

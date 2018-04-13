@@ -30,7 +30,7 @@ if ( $result->num_rows == 0 ){ // User doesn't exist
                 if ($row['Description'] != 'Client') {
                     $userID = $row['UserID'];
                     $sqlAddAgent = "INSERT INTO AdminAndAgent (UserID) VALUES ($userID)";
-                    if ($mysqli->query($sqlAddUser)) {
+                    if ($mysqli->query($sqlAddAgent)) {
                         $_SESSION['accountMessage'] = "User '$email' was successfully added!";
                         header("location: accountManagement.php");
                     } else {

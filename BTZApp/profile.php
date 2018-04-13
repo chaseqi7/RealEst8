@@ -32,79 +32,85 @@ $result = $mysqli->query("SELECT * FROM UserT WHERE Email='$email'");
     <title>Welcome <?= $first_name.' '.$last_name ?></title>
     <?php include 'css/css.html'; ?>
 </head>
-
 <body>
-<!--Navbar-->
-<div id="nav-bar">
-    <ul class="navbar">
-        <li class="navTitle"><a href="index.php">Real Est8</a></li>
-        <?php
-        if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']){
-            echo "<li id=\"account-dropdown\" class=\"dropdown\">";
-            echo "<a href=\"account.php\" class=\"dropbtn\">Sign in</a>";
-            echo "</li>";
-        }
-        else{
-            echo "<li id=\"account-dropdown\" class=\"dropdown\">";
-            echo "<a href=\"profile.php\" class=\"dropbtn\">Profile</a>";
-            echo "<div id=\"account-dropdown-content\" class=\"dropdown-content\">";
-            if (isset($_SESSION['role']) && $_SESSION['role'] === 'Admin'){
-                echo "<a href=\"accountManagement.php\">Manage Accounts</a>";
+    <!--Navbar-->
+    <div id="nav-bar">
+        <ul class="navbar">
+            <li class="navTitle"><a href="index.php">Real Est8</a></li>
+            <?php
+            if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']){
+                echo "<li id=\"account-dropdown\" class=\"dropdown\">";
+                echo "<a href=\"account.php\" class=\"dropbtn\">Sign in</a>";
+                echo "</li>";
             }
-            echo "<a href=\"logout.php\">Sign out</a>";
-            echo "</div>";
-            echo "</li>";
-        }
-        ?>
-    </ul>
-</div>
-<div id="profile-page">
-    <h2>Welcome <?php echo $first_name.' '.$last_name; ?></h2>
-    <table>
-        <?php
-        if ($result->num_rows > 0) {
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo '<tr>';
-                echo '<th align="left">First name:</th>';
-                echo '<td align="right">'.$row["FirstName"].'</td>';
-                echo '</tr>';
-                echo '<tr>';
-                echo '<th align="left">Last name:</th>';
-                echo '<td align="right">'.$row["LastName"].'</td>';
-                echo '</tr>';
-                echo '<tr>';
-                echo '<th align="left">Address:</th>';
-                echo '<td align="right">'.$row["Address"].'</td>';
-                echo '</tr>';
-                echo '<tr>';
-                echo '<th align="left">City:</th>';
-                echo '<td align="right">'.$row["City"].'</th>';
-                echo '</tr>';
-                echo '<tr>';
-                echo '<th align="left">Province:</th>';
-                echo '<td align="right">'.$row["Province"].'</td>';
-                echo '</tr>';
-                echo '<tr>';
-                echo '<th align="left">PostalCode:</th>';
-                echo '<td align="right">'.$row["PostalCode"].'</td>';
-                echo '</tr>';
-                echo '<tr>';
-                echo '<th align="left">PhoneNumber:</th>';
-                echo '<td align="right">'.$row["PhoneNumber"].'</td>';
-                echo '</tr>';
+            else{
+                echo "<li id=\"account-dropdown\" class=\"dropdown\">";
+                echo "<a href=\"profile.php\" class=\"dropbtn\">Profile</a>";
+                echo "<div id=\"account-dropdown-content\" class=\"dropdown-content\">";
+                if (isset($_SESSION['role']) && $_SESSION['role'] === 'Admin'){
+                    echo "<a href=\"accountManagement.php\">Manage Accounts</a>";
+                }
+                echo "<a href=\"logout.php\">Sign out</a>";
+                echo "</div>";
+                echo "</li>";
             }
-        } else {
-            echo
-            '<div class="info">
-                0 results
-            </div>';
-        }
-        ?>
-    </table>
-    <button type="submit" name="editProfileButton" id="editProfileButton"/>Edit Profile</button>
-</div>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src="js/index.js"></script>
+            ?>
+        </ul>
+    </div>
+    <div id="profile-page">
+        <h2>Welcome <?php echo $first_name.' '.$last_name; ?></h2>
+        <p>
+            <?php
+            if( isset($_SESSION['profileMessage']) AND !empty($_SESSION['profileMessage']) ):
+                echo $_SESSION['profileMessage'];
+            endif;
+            ?>
+        </p>
+        <table>
+            <?php
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                    echo '<tr>';
+                    echo '<th align="left">First name:</th>';
+                    echo '<td align="right">'.$row["FirstName"].'</td>';
+                    echo '</tr>';
+                    echo '<tr>';
+                    echo '<th align="left">Last name:</th>';
+                    echo '<td align="right">'.$row["LastName"].'</td>';
+                    echo '</tr>';
+                    echo '<tr>';
+                    echo '<th align="left">Address:</th>';
+                    echo '<td align="right">'.$row["Address"].'</td>';
+                    echo '</tr>';
+                    echo '<tr>';
+                    echo '<th align="left">City:</th>';
+                    echo '<td align="right">'.$row["City"].'</th>';
+                    echo '</tr>';
+                    echo '<tr>';
+                    echo '<th align="left">Province:</th>';
+                    echo '<td align="right">'.$row["Province"].'</td>';
+                    echo '</tr>';
+                    echo '<tr>';
+                    echo '<th align="left">PostalCode:</th>';
+                    echo '<td align="right">'.$row["PostalCode"].'</td>';
+                    echo '</tr>';
+                    echo '<tr>';
+                    echo '<th align="left">PhoneNumber:</th>';
+                    echo '<td align="right">'.$row["PhoneNumber"].'</td>';
+                    echo '</tr>';
+                }
+            }
+            ?>
+        </table>
+        <a href="editProfilePage.php">
+            <input type="submit" id="editProfileBtn" name="editProfileBtn" value="Edit Profile" />
+        </a>
+        <a href="changePassword.php">
+            <input type="submit" id="changePasswordBtn" name="changePasswordBtn" value="Change Password" />
+        </a>
+    </div>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
