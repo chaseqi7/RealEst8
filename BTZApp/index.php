@@ -31,11 +31,49 @@ function refreshList(){
         die("Connection failed: " . $conn->connect_error);
     }
     else{
+        $filterStrings= "WHERE ";
         $selectSQL = "SELECT * FROM Property ";
         if (isset($_POST['PropertyTypeSelect'])) {
-            $selectSQL=$selectSQL."WHERE PropertyType=".$_POST['PropertyTypeSelect'];
+            $filterStrings=$filterStrings."PropertyType=".$_POST['PropertyTypeSelect']." AND ";
         }
-        $result = $conn->query($selectSQL);
+        if (isset($_POST['BuildingTypeSelect'])) {
+            $filterStrings=$filterStrings."BuildingType=".$_POST['BuildingTypeSelect']." AND ";
+        }
+        if (isset($_POST['OwnershipSelect'])) {
+            $filterStrings=$filterStrings."Ownership=".$_POST['OwnershipSelect']." AND ";
+        }
+        if (isset($_POST['SaleOrRentSelect'])) {
+            $filterStrings=$filterStrings."SaleOrRent=".$_POST['SaleOrRentSelect']." AND ";
+        }
+        if (isset($_POST['UpperLimitSelect'])) {
+            $filterStrings=$filterStrings."Price<=".$_POST['UpperLimitSelect']." AND ";
+        }
+        if (isset($_POST['LowerLimitSelect'])) {
+            $filterStrings=$filterStrings."Price>=".$_POST['LowerLimitSelect']." AND ";
+        }
+        if (isset($_POST['NumberOfBedroomsSelect'])) {
+            $NumberOfBedrooms=$_POST['NumberOfBedroomsSelect'];
+            if($NumberOfBedrooms=='5'){
+                $filterStrings=$filterStrings."NumberOfBedrooms>=".$NumberOfBedrooms." AND ";
+            }
+            else{
+                $filterStrings=$filterStrings."NumberOfBedrooms=".$NumberOfBedrooms." AND ";
+            }
+        }
+        if (isset($_POST['NumberOfWashroomsSelect'])) {
+            $NumberOfWashrooms=$_POST['NumberOfWashroomsSelect'];
+            if($NumberOfWashrooms=='5'){
+                $filterStrings=$filterStrings."NumberOfWashrooms>=".$NumberOfWashrooms." AND ";
+            }
+            else{
+                $filterStrings=$filterStrings."NumberOfWashrooms=".$NumberOfWashrooms." AND ";
+            }
+        }
+        if (isset($_POST['OpenHouseSelect'])) {
+            $filterStrings=$filterStrings."OpenHouse=".$_POST['OpenHouseSelect']." AND ";
+        }
+        $SQLString=substr($selectSQL.$filterStrings, 0, -4);
+        $result = $conn->query($SQLString);
         while($row = $result->fetch_array())
         {
             echo' <a href="listing-detail.html" class="listing-link">
@@ -153,13 +191,13 @@ function refreshList(){
                     }
                     echo "</select>";
 
-                    echo "<select name='UpperLimit' class='filter-option'><option selected disabled>Upper Price Limit</option>";
+                    echo "<select name='LowerLimitSelect' class='filter-option'><option selected disabled>Lower Price Limit</option>";
                     for ($k = 0 ; $k < 1000000; $k=$k+100000){
                         echo "<option value='" . $k . "'>" . $k . "</option>";
                     }
                     echo "</select>";
 
-                    echo "<select name='LowerLimit' class='filter-option'><option selected disabled>Lower Price Limit</option>";
+                    echo "<select name='UpperLimitSelect' class='filter-option'><option selected disabled>Upper Price Limit</option>";
                     for ($k = 0 ; $k < 1000000; $k=$k+100000){
                         echo "<option value='" . $k . "'>" . $k . "</option>";
                     }
@@ -180,8 +218,8 @@ function refreshList(){
                 ?>
                 <select name="OpenHouseSelect"  class='filter-option'>
                     <option selected disabled>Open House</option>
-                    <option value="1">Yes</option>
-                    <option value="0">No</option>
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
                 </select>
 
 
