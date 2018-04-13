@@ -18,8 +18,8 @@ if ( !isset($_SESSION['logged_in']) || !$_SESSION['logged_in'] ) {
 else {
     // Makes it easier to read
     $email = $_SESSION['email'];
-    $first_name = $_SESSION['first_name'];
-    $last_name = $_SESSION['last_name'];
+    $first_name = $_SESSION['firstname'];
+    $last_name = $_SESSION['lastname'];
     $role = $_SESSION['role'];
 }
 

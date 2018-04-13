@@ -20,8 +20,8 @@ else if($_SESSION['role'] != 'Admin'){
 else {
     // Makes it easier to read
     $email = $_SESSION['email'];
-    $first_name = $_SESSION['first_name'];
-    $last_name = $_SESSION['last_name'];
+    $first_name = $_SESSION['firstname'];
+    $last_name = $_SESSION['lastname'];
     $role = $_SESSION['role'];
 }
 
@@ -78,7 +78,7 @@ $result = $mysqli->query("
     </div>
     <div id="account-management-container">
     <!-- List of user -->
-    <h2>List of users</h2>
+    <h2>List of Users</h2>
     <p>
         <?php
         if( isset($_SESSION['addAccountMessage']) && !empty($_SESSION['addAccountMessage']) ){
@@ -87,9 +87,9 @@ $result = $mysqli->query("
         }
         ?>
     </p>
-    <a href="createAccountPage.php"><input name="btnDeleteAccount" type="button" value="Add Account"></a>
+    <a href="createAccountPage.php"><input name="addAccount" id="addAccount" type="button" value="Add Account"></a>
     <table id="accounts-table">
-        <tr>
+        <tr class="account-stripe">
             <th class="accounts-th">First name</th>
             <th class="accounts-th">Last name</th>
             <th class="accounts-th">Role</th>
@@ -100,12 +100,12 @@ $result = $mysqli->query("
         if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-                echo '<tr>';
+                echo '<tr class="account-stripe">';
                 echo '<td class="accounts-td">'.$row["FirstName"].'</td>';
                 echo '<td class="accounts-td">'.$row["LastName"].'</td>';
                 echo '<td class="accounts-td">'.$row["Description"].'</td>';
                 echo '<td class="accounts-td">'.$row["Email"].'</td>';
-                echo '<td class="accounts-td-button">
+                echo '<td class="accounts-td-button" align="center">
                       <input class="accounts-button" name="btnDeleteAccount" type="button" value="Delete Account" 
                       onclick="return doConfirm('.$row["UserID"].')"/>
                       </td>';

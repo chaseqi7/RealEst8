@@ -24,8 +24,8 @@ else { // User exists
         $getRole = $mysqli->query("SELECT * FROM Role WHERE RoleID='$roleId'");
         $role = $getRole->fetch_assoc();
         $_SESSION['email'] = $user['Email'];
-        $_SESSION['first_name'] = $user['FirstName'];
-        $_SESSION['last_name'] = $user['LastName'];
+        $_SESSION['firstname'] = $user['FirstName'];
+        $_SESSION['lastname'] = $user['LastName'];
         $_SESSION['role'] = $role['Description'];
 
         // This is how we'll know the user is logged in

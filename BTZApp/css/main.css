@@ -12,17 +12,17 @@ a {
     text-decoration: inherit;
 }
 
-input[type=button], input[type=submit], input[type=reset] {
-    background-color: rebeccapurple;
-    border: 1px solid rebeccapurple;
-    width: 100px;
-    color: white;
-    padding: 12px 18px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
+/*input[type=button], input[type=submit], input[type=reset] {*/
+    /*background-color: rebeccapurple;*/
+    /*border: 1px solid rebeccapurple;*/
+    /*width: 100px;*/
+    /*color: white;*/
+    /*padding: 12px 18px;*/
+    /*text-align: center;*/
+    /*text-decoration: none;*/
+    /*display: inline-block;*/
+    /*font-size: 16px;*/
+/*}*/
 
 input[type=text], input[type=email], input[type=password], select  {
     border: 1px solid rebeccapurple;
@@ -110,15 +110,11 @@ textarea.error {
 }
 
 #mainSearchBar {
-    background-color: rebeccapurple;
-    border: 2px solid rebeccapurple;
-    background: url(../img/search-icon-small.png);
-    background-position: 10px 12px;
-    background-repeat: no-repeat;
+    background-color: white;border: 2px solid rebeccapurple;
     background-size: 2%;
-    width: 58.10%;
+    width: 54%;
     font-size: 16px;
-    padding: 12px 1.63% 12px 2.3%;
+    padding: 12px 1.63% 12px 1%;
     margin-right: -0.5%;
     margin-bottom: 0%;
 }
@@ -134,16 +130,18 @@ textarea.error {
     font-size: 16px;
 }
 
-/*#filter-button {*/
-    /*background-color: rebeccapurple;*/
-    /*border: 2px solid rebeccapurple;*/
-    /*color: white;*/
-    /*padding: 12px 18px;*/
-    /*text-align: center;*/
-    /*text-decoration: none;*/
-    /*display: inline-block;*/
-    /*font-size: 16px;*/
-/*}*/
+#filter-button {
+    background-color: rebeccapurple;
+    border: 2px solid rebeccapurple;
+    color: white;
+    padding: 12px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: -0.5%;
+}
+
 #filter-button:hover {
     background-color: #51287A;
     cursor: pointer;
@@ -154,6 +152,11 @@ textarea.error {
     margin-top: -0.1%;
     margin-left: 18.3%;
     margin-right: 18.3%;
+}
+
+.filter-option{
+    display: inline-block;
+    width: 99%;
 }
 
 #main-listings {
@@ -306,23 +309,6 @@ textarea.error {
     width: 100%;
 }
 
-/*!*---------------------------------------------------------------------------------------------------------------------*/
-/*Account Management*/
-/*---------------------------------------------------------------------------------------------------------------------*!*/
-
-user-account-listings {
-    margin: 3% 18.4% 3% 18.4%;
-    padding: 1% 1% 1% 1%;
-}
-
-/*#profile-page > table > th {*/
-    /*text-align: left;*/
-/*}*/
-
-/*#profile-page > table > td {*/
-    /*text-align: right;*/
-/*}*/
-
 tr {
     height: 50px;
 }
@@ -333,28 +319,44 @@ tr {
 
 #account-management-container {
     margin: 3% 18.4% 3% 18.4%;
-    padding: 1% 1% 1% 1%;
 }
 
 #accounts-table {
     width: 100%;
-    height: 50px;
+    border-collapse: collapse;
+}
+
+.account-stripe:nth-child(even) {
+    background-color: #f2f2f2;
 }
 
 .accounts-th {
     text-align: left;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
 }
 
 .accounts-td {
-
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    padding-left: 5px;
 }
 
 .accounts-td-button {
     text-align: left;
 }
 
-.accounts-button {
+.accounts-button, #addAccount {
+    color: rebeccapurple;
+    border: none;
+    background-color: transparent;
     text-align: left;
+}
+
+.accounts-button:hover {
+    color: black;
 }
 
 /*!*#login-container > form {*!*/

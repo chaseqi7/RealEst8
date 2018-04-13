@@ -112,10 +112,11 @@ function refreshList(){
 
             <form id="select-panels" method="post">
 
+                <input type="button" onclick="filterShowHide()" id="filter-button" value="▼"/>
+
                 <input id="mainSearchBar" type="text" name="search" placeholder="Search..">
                 <input type="submit" id="searchButton" name="searchButton" value="Search" />
 
-                <input type="button" onclick="filterShowHide()" id="filter-button" value="Filters"/>
 
                 <div id="filter-pane" style="display: none">
 
@@ -125,59 +126,59 @@ function refreshList(){
                 }
                 else{
                     $result = $conn->query("SELECT * FROM PropertyType ORDER BY PropertyTypeID");
-                    echo "<select name='PropertyTypeSelect'><option selected disabled>Property Type</option>";
+                    echo "<select name='PropertyTypeSelect' class='filter-option'><option selected disabled>Property Type</option>";
                     while ($row = $result->fetch_assoc()) {
                         echo "<option value='" . $row['PropertyTypeID'] . "'>".$row['Description']."</option>";
                     }
                     echo "</select>";
 
                     $result = $conn->query("SELECT * FROM BuildingType ORDER BY BuildingTypeID");
-                    echo "<select name='BuildingTypeSelect'><option selected disabled>Building Type</option>";
+                    echo "<select name='BuildingTypeSelect' class='filter-option'><option selected disabled>Building Type</option>";
                     while ($row = $result->fetch_assoc()) {
                         echo "<option value='" . $row['BuildingTypeID'] . "'>".$row['Description']."</option>";
                     }
                     echo "</select>";
 
                     $result = $conn->query("SELECT * FROM Ownership ORDER BY OwnershipID");
-                    echo "<select name='OwnershipSelect'><option selected disabled>Owner ship</option>";
+                    echo "<select name='OwnershipSelect' class='filter-option'><option selected disabled>Owner ship</option>";
                     while ($row = $result->fetch_assoc()) {
                         echo "<option value='" . $row['OwnershipID'] . "'>".$row['Description']."</option>";
                     }
                     echo "</select>";
 
                     $result = $conn->query("SELECT * FROM SaleOrRent ORDER BY SaleOrRentID");
-                    echo "<select name='SaleOrRentSelect'><option selected disabled>Sale Or Rent</option>";
+                    echo "<select name='SaleOrRentSelect' class='filter-option'><option selected disabled>Sale Or Rent</option>";
                     while ($row = $result->fetch_assoc()) {
                         echo "<option value='" . $row['SaleOrRentID'] . "'>".$row['Description']."</option>";
                     }
                     echo "</select>";
 
-                    echo "<select name='UpperLimit'><option selected disabled>Upper Price Limit</option>";
+                    echo "<select name='UpperLimit' class='filter-option'><option selected disabled>Upper Price Limit</option>";
                     for ($k = 0 ; $k < 1000000; $k=$k+100000){
                         echo "<option value='" . $k . "'>" . $k . "</option>";
                     }
                     echo "</select>";
 
-                    echo "<select name='LowerLimit'><option selected disabled>Lower Price Limit</option>";
+                    echo "<select name='LowerLimit' class='filter-option'><option selected disabled>Lower Price Limit</option>";
                     for ($k = 0 ; $k < 1000000; $k=$k+100000){
                         echo "<option value='" . $k . "'>" . $k . "</option>";
                     }
                     echo "</select>";
 
-                    echo "<select name='NumberOfBedroomsSelect'><option selected disabled>Number Of Bedrooms</option>";
+                    echo "<select name='NumberOfBedroomsSelect' class='filter-option'><option selected disabled>Number Of Bedrooms</option>";
                     for ($k = 1 ; $k < 5; $k++){
                         echo "<option value='" . $k . "'>" . $k . "</option>";
                     }
                     echo "<option value=\"5\">5+</option></select>";
 
-                    echo "<select name='NumberOfWashroomsSelect'><option selected disabled>Number Of Bathrooms</option>";
+                    echo "<select name='NumberOfWashroomsSelect' class='filter-option'><option selected disabled>Number Of Bathrooms</option>";
                     for ($k = 1 ; $k < 5; $k++){
                         echo "<option value='" . $k . "'>" . $k . "</option>";
                     }
                     echo "<option value=\"5\">5+</option></select>";
                 }
                 ?>
-                <select name="OpenHouseSelect">
+                <select name="OpenHouseSelect"  class='filter-option'>
                     <option selected disabled>Open House</option>
                     <option value="1">Yes</option>
                     <option value="0">No</option>
