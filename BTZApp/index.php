@@ -81,7 +81,7 @@ function refreshList(){
         $result = $conn->query($SQLString);
         while($row = $result->fetch_array())
         {
-            echo' <a href="listing-detail.html" class="listing-link">
+            echo' <a href="listingDetails.php?id='.$row["PropertyID"].'" class="listing-link">
                                 <div class="listing">
                                     <img class="listing-image" src="img/example-house.jpg" />
                                     <h3 class="listing-address">'.$row["Address"].'</h3><br>
