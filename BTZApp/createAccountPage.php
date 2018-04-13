@@ -58,30 +58,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     </ul>
 </div>
 <!-- Add Account Form -->
-<div class="form">
+<div class="create-account-container">
     <h1>Add Account</h1>
     <form name="addAccountForm" action="createAccountPage.php" method="post" autocomplete="off">
         <div class="field-wrap">
             <label>
-                Email Address<span class="req">*</span>
+                Email Address<span class="req"></span>
             </label>
             <input type="email" autocomplete="off" name="email"/>
         </div>
         <div class="field-wrap">
             <label>
-                First Name<span class="req">*</span>
+                First Name<span class="req"></span>
             </label>
             <input type="text" autocomplete="off" name="firstname"/>
         </div>
         <div class="field-wrap">
             <label>
-                Last Name<span class="req">*</span>
+                Last Name<span class="req"></span>
             </label>
             <input type="text" autocomplete="off" name="lastname"/>
         </div>
         <div class="field-wrap">
             <label>
-                Role<span class="req">*</span>
+                Role<span class="req"></span>
             </label>
             <?php
             $result = $mysqli->query("
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             echo "</select>";
             ?>
         </div>
-        <button type="submit" class="button button-block" name="addAccountBtn" />Add Account</button>
+        <button type="submit" id="addAccountBtn" />Add Account</button>
     </form>
 </div> <!-- /form -->
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

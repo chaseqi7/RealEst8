@@ -102,7 +102,7 @@ $result = $mysqli->query("SELECT * FROM UserT WHERE Email='$email'");
         }
         ?>
     </table>
-    <button type="submit" class="button button-block" name="editProfileButton" id="editProfileButton"/>Edit Profile</button>
+    <button type="submit" name="editProfileButton" id="editProfileButton"/>Edit Profile</button>
 </div>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="js/index.js"></script>

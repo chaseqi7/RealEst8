@@ -67,7 +67,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' )
     <form action="php/forgot.php" method="post">
         <div class="field-wrap">
             <label>
-                Email Address<span class="req">*</span>
+                Email Address<span class="req">1</span>
             </label>
             <input type="email"required autocomplete="off" name="email"/>
         </div>
