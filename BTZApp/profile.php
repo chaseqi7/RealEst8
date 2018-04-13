@@ -106,7 +106,7 @@ $result = $mysqli->query("SELECT * FROM UserT WHERE Email='$email'");
         <a href="editProfilePage.php">
             <input type="submit" id="editProfileBtn" name="editProfileBtn" value="Edit Profile" />
         </a>
-        <a href="changePassword.php">
+        <a href="changePasswordPage.php">
             <input type="submit" id="changePasswordBtn" name="changePasswordBtn" value="Change Password" />
         </a>
     </div>

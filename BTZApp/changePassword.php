@@ -6,51 +6,40 @@
  * File name: changePassword.php
  */
 
-require 'db.php';
-session_start();
+$email = $mysqli->escape_string($_POST['email']);
+$currentPassword = $mysqli->escape_string($_POST['currentPassword']);
+$newPassword = $mysqli->escape_string($_POST['newPassword']);
+$confirmPassword = $mysqli->escape_string($_POST['confirmPassword']);
+$hashedPassword = $mysqli->escape_string(password_hash($newPassword,PASSWORD_DEFAULT));
 
-// Check if user is logged in using the session variable
-if ( !isset($_SESSION['logged_in']) || !$_SESSION['logged_in'] ) {
-    $_SESSION['message'] = "You must log in before viewing your profile page!";
-    header("location: error.php");
+$result = $mysqli->query("SELECT * FROM UserT WHERE Email='$email'");
+
+if ( $result->num_rows > 0 ){
+    while ($row = $result->fetch_assoc()) {
+        if (password_verify($currentPassword, $row["Password"])) {
+            if ($newPassword == $confirmPassword) {
+                $sql = "UPDATE userT SET Password='$hashedPassword' WHERE Email='$email'";
+
+                if ($mysqli->query($sql)) {
+                    $_SESSION['profileMessage'] = 'Password has been updated!';
+                    header("location: profile.php");
+                } else { // Email doesn't already exist in a database, proceed...
+                    $_SESSION['changePasswordMessage'] = 'There is something wrong,please try again!';
+                    header("location: changePasswordPage.php");
+                }
+            } else {
+                $_SESSION['changePasswordMessage'] = 'New Password doesn\'t match!';
+                header("location: changePasswordPage.php");
+            }
+        }
+        else{
+            $_SESSION['changePasswordMessage'] = 'Current password not correct!';
+            header("location: changePasswordPage.php");
+        }
+    }
+}
+else{
+    $_SESSION['changePasswordMessage'] = 'There is something wrong,please try again!';
+    header("location: changePasswordPage.php");
 }
 
-?>
-
-<!DOCTYPE html>
-<html >
-<head>
-    <meta charset="UTF-8">
-    <title>Welcome <?= $first_name.' '.$last_name ?></title>
-    <?php include 'css/css.html'; ?>
-</head>
-
-<body>
-    <!--Navbar-->
-    <div id="nav-bar">
-        <ul class="navbar">
-            <li class="navTitle"><a href="index.php">Real Est8</a></li>
-            <?php
-            if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']){
-                echo "<li id=\"account-dropdown\" class=\"dropdown\">";
-                echo "<a href=\"account.php\" class=\"dropbtn\">Sign in</a>";
-                echo "</li>";
-            }
-            else{
-                echo "<li id=\"account-dropdown\" class=\"dropdown\">";
-                echo "<a href=\"profile.php\" class=\"dropbtn\">Profile</a>";
-                echo "<div id=\"account-dropdown-content\" class=\"dropdown-content\">";
-                if (isset($_SESSION['role']) && $_SESSION['role'] === 'Admin'){
-                    echo "<a href=\"accountManagement.php\">Manage Accounts</a>";
-                }
-                echo "<a href=\"logout.php\">Sign out</a>";
-                echo "</div>";
-                echo "</li>";
-            }
-            ?>
-        </ul>
-    </div>
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src="js/index.js"></script>
-</body>
-</html>

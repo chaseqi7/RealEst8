@@ -25,7 +25,12 @@ $result = $mysqli->query("SELECT * FROM UserT WHERE Email='$email'");
     <title>Welcome <?= $first_name.' '.$last_name ?></title>
     <?php include 'css/css.html'; ?>
 </head>
-
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+    require 'editProfile.php';
+}
+?>
 <body>
     <!--Navbar-->
     <div id="nav-bar">
@@ -60,7 +65,7 @@ $result = $mysqli->query("SELECT * FROM UserT WHERE Email='$email'");
             endif;
             ?>
         </p>
-        <form name="editProfileForm" action="editProfile.php" method="post" autocomplete="off">
+        <form name="editProfileForm" action="editProfilePage.php" method="post">
             <?php
             if ($result->num_rows > 0) {
                 // output data of each row
@@ -72,32 +77,35 @@ $result = $mysqli->query("SELECT * FROM UserT WHERE Email='$email'");
                     echo '</div>';
                     echo '<div class="field-wrap">';
                     echo '<label>Last Name<span class="req">*</span></label>';
-                    echo '<input type="text" required autocomplete="off" name=\'lastname\' value='.$row["LastName"].'></input>';
+                    echo '<input type="text" required name=\'lastname\' value='.$row["LastName"].'></input>';
                     echo '</div>';
                     echo '<div class="field-wrap">';
                     echo '<label>Address</label>';
-                    echo '<input type="text" autocomplete="off" name=\'address\' value='.$row["Address"].'></input>';
+                    echo '<input type="text" name=\'address\' value='.$row["Address"].'></input>';
                     echo '</div>';
                     echo '<div class="field-wrap">';
                     echo '<label>City</label>';
-                    echo '<input type="text" autocomplete="off" name=\'city\' value='.$row["City"].'></input>';
+                    echo '<input type="text" name=\'city\' value='.$row["City"].'></input>';
                     echo '</div>';
                     echo '<div class="field-wrap">';
                     echo '<label>Province</label>';
-                    echo '<input type="text" autocomplete="off" name=\'province\' value='.$row["Province"].'></input>';
+                    echo '<input type="text" name=\'province\' value='.$row["Province"].'></input>';
                     echo '</div>';
                     echo '<div class="field-wrap">';
                     echo '<label>PostalCode</label>';
-                    echo '<input type="text" autocomplete="off" name=\'postalcode\' value='.$row["PostalCode"].'></input>';
+                    echo '<input type="text" name=\'postalcode\' value='.$row["PostalCode"].'></input>';
                     echo '</div>';
                     echo '<div class="field-wrap">';
                     echo '<label>PhoneNumber</label>';
-                    echo '<input type="text" autocomplete="off" name=\'phone\' value='.$row["PhoneNumber"].'></input>';
+                    echo '<input type="text" name=\'phone\' value='.$row["PhoneNumber"].'></input>';
                     echo '</div>';
                 }
             }
             ?>
             <button type="submit" class="button button-block" name="saveBtn" id="saveBtn"/>Save</button>
+            <a href="profile.php">
+                <input type="submit" id="cancelEditProfileBtn" name="cancelEditProfileBtn" value="Cancel" />
+            </a>
         </form>
     </div>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

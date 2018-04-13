@@ -19,7 +19,7 @@ $phone = $mysqli->escape_string($_POST['phone']);
 // Check if user with that email already exists
 $sql = "UPDATE userT SET FirstName='$firstname', LastName='$lastname', Address='$address',
         City='$city', Province='$province', PostalCode='$postalcode',
-        PhoneNumber='$phone' WHERE email='$email'";
+        PhoneNumber='$phone' WHERE Email='$email'";
 
 if ($mysqli->query($sql)) {
     $_SESSION['profileMessage'] = 'User was successfully edited!';
