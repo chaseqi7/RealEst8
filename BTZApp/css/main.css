@@ -300,7 +300,6 @@ textarea.error {
 }
 
 #editProfileBtn {
-
     background-color: rebeccapurple;
     border: 2px solid rebeccapurple;
     color: white;
@@ -311,6 +310,11 @@ textarea.error {
     float: left;
     font-size: 16px;
     width: 49%;
+}
+
+#editProfileBtn:hover {
+    background-color: #51287A;
+    cursor: pointer;
 }
 
 #changePasswordBtn {
@@ -324,6 +328,11 @@ textarea.error {
     float: right;
     font-size: 16px;
     width: 49%;
+}
+
+#changePasswordBtn:hover {
+    background-color: #51287A;
+    cursor: pointer;
 }
 
 tr {
@@ -377,7 +386,7 @@ tr {
 }
 
 /*!*---------------------------------------------------------------------------------------------------------------------*/
-/*Create Page Page*/
+/*Create Account Page*/
 /*---------------------------------------------------------------------------------------------------------------------*!*/
 
 .create-account-container {
@@ -397,6 +406,11 @@ tr {
     display: inline-block;
     font-size: 16px;
     width: 100%;
+}
+
+#addAccountBtn:hover {
+    background-color: #51287A;
+    cursor: pointer;
 }
 
 /*!*---------------------------------------------------------------------------------------------------------------------*/
@@ -505,6 +519,52 @@ img {
     padding-bottom: 15px;
     padding-left: 5px;
     text-align: right;
+}
+
+/*!*---------------------------------------------------------------------------------------------------------------------*/
+/*Edit Profile Page*/
+/*---------------------------------------------------------------------------------------------------------------------*!*/
+
+#editProfile {
+    margin: 3% 32% 3% 32%;
+    padding: 1% 1% 4% 1%;
+    border: 2px solid rebeccapurple;
+}
+
+#saveBtn {
+    background-color: rebeccapurple;
+    border: 2px solid rebeccapurple;
+    color: white;
+    padding: 12px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    float: left;
+    font-size: 16px;
+    width: 49%;
+}
+
+#saveBtn:hover {
+    background-color: #51287A;
+    cursor: pointer;
+}
+
+#cancelEditProfileBtn {
+    background-color: rebeccapurple;
+    border: 2px solid rebeccapurple;
+    color: white;
+    padding: 12px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    float: right;
+    font-size: 16px;
+    width: 49%;
+}
+
+#cancelEditProfileBtn:hover {
+    background-color: #51287A;
+    cursor: pointer;
 }
 
 /*!*#login-container > form {*!*/

@@ -68,19 +68,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             <input type="hidden" name='email' value='<?php echo $_SESSION["email"]?>'></input>
             <div class="field-wrap">
                 <label>
-                    Current Password<span class="req">*</span>
+                    Current Password<span class="req"></span>
                 </label>
                 <input type="password" name="currentPassword"/>
             </div>
             <div class="field-wrap">
                 <label>
-                    New Password<span class="req">*</span>
+                    New Password<span class="req"></span>
                 </label>
                 <input type="password" name="newPassword"/>
             </div>
             <div class="field-wrap">
                 <label>
-                    Confirm New Password<span class="req">*</span>
+                    Confirm New Password<span class="req"></span>
                 </label>
                 <input type="password" name="confirmPassword"/>
             </div>

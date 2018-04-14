@@ -22,7 +22,7 @@ $result = $mysqli->query("SELECT * FROM UserT WHERE Email='$email'");
 <html >
 <head>
     <meta charset="UTF-8">
-    <title>Welcome <?= $first_name.' '.$last_name ?></title>
+    <title>Welcome <?= $SESSION['firstname'].' '.$SESSION['lastname'] ?></title>
     <?php include 'css/css.html'; ?>
 </head>
 <?php
@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     echo '</div>';
                     echo '<div class="field-wrap">';
                     echo '<label>Last Name<span class="req">*</span></label>';
-                    echo '<input type="text" required name=\'lastname\' value='.$row["LastName"].'></input>';
+                    echo '<input type="text" required name=\'lastname\' value='.$row["LastName"].'"></input>';
                     echo '</div>';
                     echo '<div class="field-wrap">';
                     echo '<label>Address</label>';
@@ -102,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 }
             }
             ?>
-            <button type="submit" class="button button-block" name="saveBtn" id="saveBtn"/>Save</button>
+            <button type="submit" id="saveBtn" name="saveBtn">Save</button>
             <a href="profile.php">
                 <input type="submit" id="cancelEditProfileBtn" name="cancelEditProfileBtn" value="Cancel" />
             </a>
