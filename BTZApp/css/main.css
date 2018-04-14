@@ -289,15 +289,17 @@ textarea.error {
 
 #profile-page {
     margin: 3% 32% 3% 32%;
-    padding: 1% 1% 1% 1%;
+    padding: 1% 1% 4% 1%;
     border: 2px solid rebeccapurple;
 }
 
 #profile-page > table {
+    margin-left: auto;
+    margin-right: auto;
     width: 75%;
 }
 
-#editProfileButton {
+#editProfileBtn {
 
     background-color: rebeccapurple;
     border: 2px solid rebeccapurple;
@@ -306,8 +308,22 @@ textarea.error {
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    float: left;
     font-size: 16px;
-    width: 100%;
+    width: 49%;
+}
+
+#changePasswordBtn {
+    background-color: rebeccapurple;
+    border: 2px solid rebeccapurple;
+    color: white;
+    padding: 12px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    float: right;
+    font-size: 16px;
+    width: 49%;
 }
 
 tr {
@@ -381,6 +397,114 @@ tr {
     display: inline-block;
     font-size: 16px;
     width: 100%;
+}
+
+/*!*---------------------------------------------------------------------------------------------------------------------*/
+/*Listing Detail Page*/
+/*---------------------------------------------------------------------------------------------------------------------*!*/
+
+.listing-detail-container {
+    margin: 3% 18.4% 3% 18.4%;
+    padding: 1% 1% 1% 1%;
+    border: 2px solid rebeccapurple;
+}
+
+* {box-sizing: border-box}
+
+.mySlides {
+    display: none
+}
+
+.listing-detail-image {
+    object-fit: cover;
+}
+
+img {
+    height: 400px;
+    vertical-align: middle;
+    border: 2px solid rebeccapurple;
+}
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 950px;
+    position: relative;
+    margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+    .prev, .next,.text {font-size: 11px}
+}
+
+.listing-detail-images-single {
+    margin: 1% 1% 1% 1%;
+    border: 2px solid rebeccapurple;
+}
+
+.listing-detail-table {
+    margin-bottom: 2%;
+    margin-right: 2%;
+    width: 100%;
+}
+
+.listing-details-th {
+    text-align: left;
+    padding-top: 15px;
+    /*padding-right: 15px;*/
+    padding-bottom: 15px;
+}
+
+.listing-details-td {
+    padding-top: 15px;
+    /*padding-right: 15px;*/
+    padding-bottom: 15px;
+    padding-left: 5px;
+    text-align: right;
 }
 
 /*!*#login-container > form {*!*/
