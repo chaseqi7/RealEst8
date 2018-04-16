@@ -6,6 +6,8 @@
  * File name: register.php
  */
 
+include("AccountClass.php");
+
 /* Registration process, inserts user info into the database
    and sends account confirmation email message
  */
@@ -13,28 +15,22 @@ $passwordCheckBase = $_POST['password'];
 $passwordConfirm = $_POST['confirmPassword'];
 
 // Escape all $_POST variables to protect against SQL injections
-$first_name = $mysqli->escape_string($_POST['firstname']);
-$last_name = $mysqli->escape_string($_POST['lastname']);
+$firstname = $mysqli->escape_string($_POST['firstname']);
+$lastname = $mysqli->escape_string($_POST['lastname']);
 $email = $mysqli->escape_string($_POST['email']);
-$phone = $mysqli->escape_string($_POST['phone']);
-$password = $mysqli->escape_string(password_hash($_POST['password'],PASSWORD_DEFAULT));
-
-// Check if user with that email already exists
-$result = $mysqli->query("SELECT * FROM UserT WHERE Email='$email'") or die($mysqli->error());
+$password = $mysqli->escape_string($_POST['password']);
 
 if($passwordCheckBase === $passwordConfirm) {
-    // We know user email exists if the rows returned are more than 0
-    if ($result->num_rows > 0) {
+    $account = new AccountClass($mysqli);
+
+    if ($account->ifUserExist($_POST['email'])) {
         $_SESSION['messageLogin'] = 'User with this email already exists!';
         header("location: account.php");
-    } else { // Email doesn't already exist in a database, proceed...
-        // active is 0 by DEFAULT (no need to include it here)
-        $sql = "INSERT INTO UserT (Email,Password,FirstName,LastName,Role,PhoneNumber) 
-            VALUES ('$email','$password','$first_name','$last_name',3,'$phone')";
-
+    } else {
+        $result = $account->addAccount(
+            $email,$password,$firstname,$lastname,3);
         // Add user to the database
-        if ($mysqli->query($sql)) {
-            $_SESSION['logged_in'] = true; // So we know the user has logged in
+        if ($result) {
             $_SESSION['messageLogin'] =
                 "You have successfully registered, please log in!";
             header("location: account.php");

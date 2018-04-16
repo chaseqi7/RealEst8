@@ -6,6 +6,8 @@
  * File name: editProfile.php
  */
 
+include("AccountClass.php");
+
 // Escape all $_POST variables to protect against SQL injections
 $email = $mysqli->escape_string($_POST['email']);
 $firstname = $mysqli->escape_string($_POST['firstname']);
@@ -17,11 +19,10 @@ $postalcode = $mysqli->escape_string($_POST['postalcode']);
 $phone = $mysqli->escape_string($_POST['phone']);
 
 // Check if user with that email already exists
-$sql = "UPDATE userT SET FirstName='$firstname', LastName='$lastname', Address='$address',
-        City='$city', Province='$province', PostalCode='$postalcode',
-        PhoneNumber='$phone' WHERE Email='$email'";
+$account = new AccountClass($mysqli);
+$result = $account->addAccount($email,$firstname,$lastname,$address,$city,$province,$postalcode,$phone);
 
-if ($mysqli->query($sql)) {
+if ($result) {
     $_SESSION['profileMessage'] = 'User was successfully edited!';
     header("location: profile.php");
 } else { // Email doesn't already exist in a database, proceed...

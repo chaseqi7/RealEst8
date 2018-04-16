@@ -82,38 +82,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                             <label>
                                 First Name<span class="req"></span>
                             </label>
-                            <input type="text" autocomplete="off" name='firstname' />
+                            <input type="text" required name='firstname' />
                         </div>
                         <div class="field-wrap">
                             <label>
                                 Last Name<span class="req"></span>
                             </label>
-                            <input type="text" autocomplete="off" name='lastname' />
+                            <input type="text" required name='lastname' />
                         </div>
                     </div>
                     <div class="field-wrap">
                         <label>
                             Email Address<span class="req"></span>
                         </label>
-                        <input type="email" autocomplete="off" name='email' />
+                        <input type="email" required name='email' />
                     </div>
                     <div class="field-wrap">
                         <label>
                             Password<span class="req"></span>
                         </label>
-                        <input type="password" autocomplete="off" name='password' id="password"/>
+                        <input type="password" required name='password' id="password"/>
                     </div>
                     <div class="field-wrap">
                         <label>
                             Confirm Password<span class="req"></span>
                         </label>
-                        <input type="password" autocomplete="off" name='confirmPassword' id="confirmPassword"/>
-                    </div>
-                    <div class="field-wrap">
-                        <label>
-                            Phone Number<span class="req"></span>
-                        </label>
-                        <input type="text" autocomplete="off" name='phone'/>
+                        <input type="password" required name='confirmPassword' id="confirmPassword"/>
                     </div>
                     <button type="submit" class="button button-block" name="register" id="register"/>Register</button>
                 </form>

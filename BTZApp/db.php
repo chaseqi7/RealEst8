@@ -7,9 +7,20 @@
  * File name: db.php
  */
 
-/* Database connection settings */
-$host = 'localhost';
-$user = 'root';
-$pass = '1234';
-$db = 'BTZDatabase';
-$mysqli = new mysqli($host,$user,$pass,$db) or die($mysqli->error);
+class DB{
+    /* Database connection settings */
+    private $host = 'localhost';
+    private $user = 'root';
+    private $pass = '1234';
+    private $db = 'BTZDatabase';
+    private $mysqli;
+
+    function __construct()
+    {
+        $this->mysqli=new mysqli($this->host,$this->user,$this->pass,$this->db) or die($this->mysqli->error);
+    }
+
+    function getConnection(){
+        return $this->mysqli;
+    }
+}
