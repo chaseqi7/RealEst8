@@ -20,7 +20,7 @@ $phone = $mysqli->escape_string($_POST['phone']);
 
 // Check if user with that email already exists
 $account = new AccountClass($mysqli);
-$result = $account->addAccount($email,$firstname,$lastname,$address,$city,$province,$postalcode,$phone);
+$result = $account->updateUser($email,$firstname,$lastname,$address,$city,$province,$postalcode,$phone);
 
 if ($result) {
     $_SESSION['profileMessage'] = 'User was successfully edited!';

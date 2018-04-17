@@ -6,8 +6,10 @@
  * File name: editProfilePage.php
  */
 
-require 'db.php';
+include('db.php');
 session_start();
+$db = new DB();
+$mysqli = $db->getConnection();
 
 // Check if user is logged in using the session variable
 if ( !isset($_SESSION['logged_in']) || !$_SESSION['logged_in'] ) {
@@ -77,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                     echo '</div>';
                     echo '<div class="field-wrap">';
                     echo '<label>Last Name<span class="req">*</span></label>';
-                    echo '<input type="text" required name=\'lastname\' value='.$row["LastName"].'"></input>';
+                    echo '<input type="text" required name=\'lastname\' value='.$row["LastName"].'></input>';
                     echo '</div>';
                     echo '<div class="field-wrap">';
                     echo '<label>Address</label>';
@@ -104,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             ?>
             <button type="submit" id="saveBtn" name="saveBtn">Save</button>
             <a href="profile.php">
-                <input type="submit" id="cancelEditProfileBtn" name="cancelEditProfileBtn" value="Cancel" />
+                <input type="button" id="cancelEditProfileBtn" name="cancelEditProfileBtn" value="Cancel" />
             </a>
         </form>
     </div>

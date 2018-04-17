@@ -5,9 +5,11 @@
  * Date created: 2018-04-08
  * File name: accountManagement.php
  */
-
-require 'db.php';
+include('db.php');
 session_start();
+$db = new DB();
+$mysqli = $db->getConnection();
+
 // Check if user is logged in using the session variable
 if ( !isset($_SESSION['logged_in']) || !$_SESSION['logged_in'] ) {
     $_SESSION['message'] = "You must log in before viewing your profile page!";
@@ -106,7 +108,7 @@ $result = $mysqli->query("
                 echo '<td class="accounts-td">'.$row["Email"].'</td>';
                 echo '<td class="accounts-td-button" align="center">
                       <input class="accounts-button" name="btnDeleteAccount" type="button" value="Delete Account" 
-                      onclick="return doConfirm('.$row["Email"].')"/>
+                      onclick="return doConfirm('.$row["UserID"].')"/>
                       </td>';
                 echo '</tr>';
             }
@@ -119,7 +121,7 @@ $result = $mysqli->query("
         ?>
     </table>
     <script language="JavaScript" type="text/javascript">
-        function doConfirm(email) {
+        function doConfirm(id) {
             var ok = confirm("Are you sure to Delete?");
             if (ok) {
                 if (window.XMLHttpRequest) {
@@ -137,7 +139,7 @@ $result = $mysqli->query("
                 }
                 xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 // file name where delete code is written
-                xmlhttp.send("email=" +email);
+                xmlhttp.send("id=" + id);
             }
         }
     </script>

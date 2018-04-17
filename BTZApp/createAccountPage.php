@@ -5,8 +5,10 @@
  * Date created: 2018-04-10
  * File name: createAccountPage.php
  */
-require 'db.php';
+include('db.php');
 session_start();
+$db = new DB();
+$mysqli = $db->getConnection();
 ?>
 <!DOCTYPE html>
 <html>

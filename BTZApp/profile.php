@@ -23,6 +23,8 @@ else {
     $role = $_SESSION['role'];
 }
 
+$db = new DB();
+$mysqli = $db->getConnection();
 $result = $mysqli->query("SELECT * FROM UserT WHERE Email='$email'");
 ?>
 <!DOCTYPE html>

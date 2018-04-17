@@ -83,7 +83,7 @@ class phpUnitTest extends TestCase
 
     public function testDeleteAccount(){
         $account = new AccountClass($this->mysqli);
-        $result = $account->deleteAccount($this->EMAIL);
+        $result = $account->deleteAccountByEmail($this->EMAIL);
         $this->assertEquals(true, $result);
     }
 

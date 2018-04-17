@@ -79,6 +79,19 @@ class AccountClass
         return null;
     }
 
+    public function getUserByID($id){
+        $result = $this->mysqli->query("SELECT * FROM UserT WHERE UserID=$id");
+        // We know user email exists if the rows returned are more than 0
+        if ($result->num_rows > 0) {
+            $user = $result->fetch_assoc();
+            return $user;
+        }
+        else{
+            return null;
+        }
+        return null;
+    }
+
     public function addAccount($email,$password,$firstname,$lastname,$role){
         $hashedPassword = $this->mysqli->escape_string(password_hash($password,PASSWORD_DEFAULT));
         $result = $this->mysqli->query("INSERT INTO UserT (Email,Password,FirstName,LastName,Role)
@@ -120,14 +133,14 @@ class AccountClass
         return false;
     }
 
-    public function deleteAccount($email){
-        $user = $this->getUser($email);
-        $userID = $user["UserID"];
+    public function deleteAccount($id){
+        $user = $this->getUserByID($id);
+        $email = $user["Email"];
         if ($this->isNotClient($email)){
-            $result = $this->mysqli->query("DELETE FROM AdminAndAgent WHERE UserID=$userID");
+            $result = $this->mysqli->query("DELETE FROM AdminAndAgent WHERE UserID=$id");
             if ($result)
             {
-                $resultDeleteUser = $this->mysqli->query("DELETE FROM UserT WHERE UserID=$userID");
+                $resultDeleteUser = $this->mysqli->query("DELETE FROM UserT WHERE UserID=$id");
                 if ($resultDeleteUser)
                 {
                     return true;
@@ -141,7 +154,39 @@ class AccountClass
             }
         }
         else{
-            $resultDeleteUser = $this->mysqli->query("DELETE FROM UserT WHERE UserID=$userID");
+            $resultDeleteUser = $this->mysqli->query("DELETE FROM UserT WHERE UserID=$id");
+            if ($resultDeleteUser)
+            {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    }
+
+    public function deleteAccountByEmail($email){
+        $user = $this->getUser($email);
+        $id = $user["UserID"];
+        if ($this->isNotClient($email)){
+            $result = $this->mysqli->query("DELETE FROM AdminAndAgent WHERE UserID=$id");
+            if ($result)
+            {
+                $resultDeleteUser = $this->mysqli->query("DELETE FROM UserT WHERE UserID=$id");
+                if ($resultDeleteUser)
+                {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            else {
+                return false;
+            }
+        }
+        else{
+            $resultDeleteUser = $this->mysqli->query("DELETE FROM UserT WHERE UserID=$id");
             if ($resultDeleteUser)
             {
                 return true;

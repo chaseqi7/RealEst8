@@ -24,22 +24,8 @@ if ($account->ifUserExist($_POST['email'])) {
     $result = $account->addAccount($email,$password,$firstname,$lastname,$role);
     // Add user to the database
     if ($result) {
-        if ($account->ifUserExist($_POST['email'])){
-            $user = $account->getUser($_POST['email']);
-            $resultAdd = $account->addAccount($user['UserID']);
-            if ($resultAdd) {
-                $_SESSION['accountMessage'] = "User '$email' was successfully added!";
-                header("location: accountManagement.php");
-            } else {
-                $_SESSION['accountMessage'] = "Something was wrong! Please remove user '
-                    $email' and re-add again!";
-                header("location: accountManagement.php");
-            }
-        }
-        else{
-            $_SESSION['accountMessage'] = "Failed to add user '$email'!". $mysqli->error;
-            header("location: accountManagement.php");
-        }
+        $_SESSION['accountMessage'] = "User '$email' was successfully added!";
+        header("location: accountManagement.php");
     } else {
         $_SESSION['accountMessage'] = "Failed to add user '$email'!". $mysqli->error;
         header("location: accountManagement.php");

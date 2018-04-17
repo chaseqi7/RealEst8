@@ -8,6 +8,8 @@
 
 require 'db.php';
 session_start();
+$db = new DB();
+$mysqli = $db->getConnection();
 
 // Check if user is logged in using the session variable
 if ( !isset($_SESSION['logged_in']) || !$_SESSION['logged_in'] ) {

@@ -29,6 +29,6 @@ if ($user != null){
     }
 }
 else{
-    $_SESSION['messageLogin'] = "User with that email doesn't exist!";
+    $_SESSION['messageLogin'] = "Email/Password is not correct, try again!";
     header("location: account.php");
 }

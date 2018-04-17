@@ -7,8 +7,11 @@
  */
 
 /* Main page with two forms: sign up and log in */
-require 'db.php';
+include('db.php');
 session_start();
+$db = new DB();
+$mysqli = $db->getConnection();
+
 ?>
 <!DOCTYPE html>
 <html>
