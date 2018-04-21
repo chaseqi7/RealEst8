@@ -83,7 +83,7 @@ function refreshList(){
         {
             echo' <a href="listingDetails.php?id='.$row["PropertyID"].'" class="listing-link">
                                 <div class="listing">
-                                    <img class="listing-image" src="img/example-house.jpg" />
+                                    <img class="listing-image" src="img/'.$row["PictureID"].'.jpg" />
                                     <h3 class="listing-address">'.$row["Address"].'</h3><br>
                                     <h3 class="listing-city">'.$row["City"]." ".$row["Province"].'</h3><br>
                                     <h4 class="listing-price">$'.$row["Price"].'</h4><br>

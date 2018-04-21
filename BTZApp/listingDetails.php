@@ -69,7 +69,7 @@ if($_GET['id']){
     }
     $selectSQL = "SELECT Price,ListedDate,NumberOfBedrooms,
 NumberOfWashrooms,Address, City,Province,PostalCode,pt.Description AS ptDes,bt.Description AS btDes,sor.Description AS sorDES,
-os.description AS osDes
+os.description AS osDes, AgentName,AgentEmail,PictureID 
   FROM Property p INNER JOIN PropertyType pt ON pt.PropertyTypeID=p.PropertyType
                     INNER JOIN BuildingType bt ON bt.BuildingTypeID=p.BuildingType
                     INNER JOIN SaleOrRent sor ON sor.SaleOrRentID=p.SaleOrRent
@@ -78,16 +78,17 @@ os.description AS osDes
     $result = $conn->query($selectSQL);
     while($row = $result->fetch_array())
     {
+        $emailButton="location.href='mailto:".$row["AgentEmail"]."'";
         echo' 
                                 <div class="listing-detail-container">
                                     <div class="slideshow-container">
 
                                         <div class="mySlides fade">
-                                          <img class="listing-detail-image" src="img/example-house.jpg" style="width:100%">
+                                          <img class="listing-detail-image" src="img/'.$row["PictureID"].'.jpg" style="width:100%">
                                         </div>
                                         
                                         <div class="mySlides fade">
-                                          <img class="listing-detail-image" src="img/example-house2.jpg" style="width:100%">
+                                          <img class="listing-detail-image" src="img/2.jpg" style="width:100%">
                                         </div>
                                         
                                         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -134,6 +135,16 @@ os.description AS osDes
                                         <tr>
                                             <th class="listing-details-th">Ownership: </th>
                                             <td class="listing-details-td">'.$row["sorDES"].'</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="listing-details-th">Agent Name: </th>
+                                            <td class="listing-details-td">'.$row["AgentName"].'</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="listing-details-th">Contact: </th>
+                                            <td class="listing-details-td">
+                                            <button onclick="'.$emailButton.'" type="button">Contact the Agent</button></td>
+                                            
                                         </tr>
                                     </table>
                                 </div>
