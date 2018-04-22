@@ -80,73 +80,76 @@ os.description AS osDes, AgentName,AgentEmail,PictureID
     {
         $emailButton="location.href='mailto:".$row["AgentEmail"]."'";
         echo' 
-                                <div class="listing-detail-container">
+                                <div class="listing-info-pane">                                  
                                     <div class="slideshow-container">
-
                                         <div class="mySlides fade">
-                                          <img class="listing-detail-image" src="img/'.$row["PictureID"].'.jpg" style="width:100%">
+                                            <img class="listing-detail-image" src="img/'.$row["PictureID"].'.jpg" style="width:100%">
                                         </div>
-                                        
+                                            
                                         <div class="mySlides fade">
-                                          <img class="listing-detail-image" src="img/2.jpg" style="width:100%">
+                                            <img class="listing-detail-image" src="img/2.jpg" style="width:100%">
                                         </div>
-                                        
+                                            
                                         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                                         <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                                    
+                                        
                                     </div>
-                                    <table id="listing-detail-table">
-                                        <tr>
-                                            <th class="listing-details-th">Address: </th>
-                                            <td class="listing-details-td">'.$row["Address"]." ".$row["City"]." ".$row["Province"].'</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="listing-details-th">Price: </th>
-                                            <td class="listing-details-td">$'.$row["Price"].'<td>
-                                        </tr>
-                                        <tr>
-                                            <th class="listing-details-th">Bedrooms: </th>
-                                            <td class="listing-details-td">'.$row["NumberOfBedrooms"].'</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="listing-details-th">Washrooms: </th>
-                                            <td class="listing-details-td">'.$row["NumberOfWashrooms"].'</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="listing-details-th">Listed Date: </th>
-                                            <td class="listing-details-td">'.$row["ListedDate"].'</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="listing-details-th">Postal Code: </th>
-                                            <td class="listing-details-td">'.$row["PostalCode"].'</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="listing-details-th">Property Type: </th>
-                                            <td class="listing-details-td">'.$row["ptDes"].'</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="listing-details-th">Building Type: </th>
-                                            <td class="listing-details-td">'.$row["btDes"].'</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="listing-details-th">Sale Or Rent: </th>
-                                            <td class="listing-details-td">'.$row["sorDES"].'</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="listing-details-th">Ownership: </th>
-                                            <td class="listing-details-td">'.$row["sorDES"].'</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="listing-details-th">Agent Name: </th>
-                                            <td class="listing-details-td">'.$row["AgentName"].'</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="listing-details-th">Contact: </th>
-                                            <td class="listing-details-td">
-                                            <button onclick="'.$emailButton.'" type="button">Contact the Agent</button></td>
-                                            
-                                        </tr>
-                                    </table>
+                                    <div class="listing-table">
+                                        <table id="listing-detail-table">
+                                            <tr>
+                                                <th class="listing-details-th">Address: </th>
+                                                <td class="listing-details-td">'.$row["Address"]." ".$row["City"]." ".$row["Province"].'</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="listing-details-th">Price: </th>
+                                                <td class="listing-details-td">$'.$row["Price"].'<td>
+                                            </tr>
+                                            <tr>
+                                                <th class="listing-details-th">Bedrooms: </th>
+                                                <td class="listing-details-td">'.$row["NumberOfBedrooms"].'</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="listing-details-th">Washrooms: </th>
+                                                <td class="listing-details-td">'.$row["NumberOfWashrooms"].'</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="listing-details-th">Listed Date: </th>
+                                                <td class="listing-details-td">'.$row["ListedDate"].'</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="listing-details-th">Postal Code: </th>
+                                                <td class="listing-details-td">'.$row["PostalCode"].'</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="listing-details-th">Property Type: </th>
+                                                <td class="listing-details-td">'.$row["ptDes"].'</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="listing-details-th">Building Type: </th>
+                                                <td class="listing-details-td">'.$row["btDes"].'</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="listing-details-th">Sale Or Rent: </th>
+                                                <td class="listing-details-td">'.$row["sorDES"].'</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="listing-details-th">Ownership: </th>
+                                                <td class="listing-details-td">'.$row["sorDES"].'</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="contact-agent">
+                                        <table>
+                                            <tr>
+                                                <th class="listing-details-th">Agent Name: </th>
+                                                <td class="listing-details-td">'.$row["AgentName"].'</td>
+                                            </tr>
+                                            <tr>                                             
+                                                <td class="listing-details-td" colspan="2">
+                                                <button id="contact-button" onclick="'.$emailButton.'" type="button">Contact the Agent</button></td>                                              
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
                                 
                            
