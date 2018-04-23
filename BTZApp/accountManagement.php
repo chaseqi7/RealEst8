@@ -70,6 +70,7 @@ $result = $mysqli->query("
                 echo "<div id=\"account-dropdown-content\" class=\"dropdown-content\">";
                 if (isset($_SESSION['role']) && $_SESSION['role'] === 'Admin'){
                     echo "<a href=\"accountManagement.php\">Manage Accounts</a>";
+                    echo "<a href=\"reportPage.php\">Reports</a>";
                 }
                 echo "<a href=\"logout.php\">Sign out</a>";
                 echo "</div>";

@@ -44,12 +44,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 echo "<a href=\"account.php\" class=\"dropbtn\">Sign in</a>";
                 echo "</li>";
             }
-            else{
+            else {
                 echo "<li id=\"account-dropdown\" class=\"dropdown\">";
                 echo "<a href=\"profile.php\" class=\"dropbtn\">Profile</a>";
                 echo "<div id=\"account-dropdown-content\" class=\"dropdown-content\">";
                 if (isset($_SESSION['role']) && $_SESSION['role'] === 'Admin'){
                     echo "<a href=\"accountManagement.php\">Manage Accounts</a>";
+                    echo "<a href=\"reportPage.php\">Reports</a>";
                 }
                 echo "<a href=\"logout.php\">Sign out</a>";
                 echo "</div>";
