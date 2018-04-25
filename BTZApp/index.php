@@ -6,20 +6,10 @@
  * File name: index.php
  */
 
-require 'db.php';
+include('db.php');
 session_start();
-// Check if user is logged in using the session variable
-if ( isset($_SESSION['logged_in']) && $_SESSION['logged_in'] ) {
-    $email = $_SESSION['email'];
-    $first_name = $_SESSION['firstname'];
-    $last_name = $_SESSION['lastname'];
-    $role = $_SESSION['role'];
-}
-$servername = "localhost:3306";
-$username = "root";
-$password = "1234";
-$dbname = "BTZDatabase";
-$conn = new mysqli($servername, $username, $password, $dbname);
+$db = new DB();
+$conn = $db->getConnection();
 
 
 function refreshList(){
