@@ -592,6 +592,25 @@ img {
     cursor: pointer;
 }
 
+/*!*---------------------------------------------------------------------------------------------------------------------*/
+/*Reports Page*/
+/*---------------------------------------------------------------------------------------------------------------------*!*/
+
+#report-container {
+    margin: 3% 14% 3% 14%;
+    padding: 1% 1% 4% 1%;
+    border: 2px solid rebeccapurple;
+}
+
+.reports-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#reportTypeSelect{
+    width: 91%;
+}
+
 /*!*#login-container > form {*!*/
     /*!*padding: 1% 1% 1% 1%;*!*/
     /*!*margin: 5% 32% 0% 32%;*!*/

@@ -25,9 +25,7 @@ function displayReport()
               JOIN SaleOrRent ON Property.SaleOrRent = SaleOrRent.SaleOrRentID 
               ORDER BY Property.ListedDate ASC";
             $result = $mysqli->query($selectSQL)or die($mysqli->error);
-            while($row = $result->fetch_assoc())
-            {
-                echo'<table>
+            echo'<table class="reports-table">
                     <tr class="account-stripe">
                         <th class="accounts-th">Listed Date</th>
                         <th class="accounts-th">Price</th>
@@ -36,8 +34,10 @@ function displayReport()
                         <th class="accounts-th">Property Type</th>
                         <th class="accounts-th">Sale Or Rent</th>
                         <th class="accounts-th">City</th>
-                    </tr>
-                    <tr class="account-stripe">
+                    </tr>';
+            while($row = $result->fetch_assoc())
+            {
+                echo'<tr class="account-stripe">
                         <td class="accounts-td">'.$row["ListedDate"].'</td>
                         <td class="accounts-td">'.$row["Price"].'</td>
                         <td class="accounts-td">'.$row["NumberOfBedrooms"].'</td>
@@ -45,28 +45,28 @@ function displayReport()
                         <td class="accounts-td">'.$row["PropertyTypeDes"].'</td>
                         <td class="accounts-td">'.$row["SaleOrRentDes"].'</td>
                         <td class="accounts-td">'.$row["City"].'</td>
-                    </tr>
-                </table>';
+                    </tr>';
             }
+            echo'</table>';
         }
         else if($_POST['reportTypeSelect'] == 'userReport'){
             $selectSQL = "SELECT UserT.Email, Role.Description AS Role FROM UserT 
               JOIN Role ON UserT.Role = Role.RoleID
               ORDER BY Role.Description ASC";
             $result = $mysqli->query($selectSQL)or die($mysqli->error);
-            while($row = $result->fetch_assoc())
-            {
-                echo'<table>
+            echo'<table class="reports-table">
                     <tr class="account-stripe">
                         <th class="accounts-th">Email</th>
                         <th class="accounts-th">Role</th>
-                    </tr>
-                    <tr class="account-stripe">
+                    </tr>';
+            while($row = $result->fetch_assoc())
+            {
+                echo'<tr class="account-stripe">
                         <td class="accounts-td">'.$row["Email"].'</td>
                         <td class="accounts-td">'.$row["Role"].'</td>
-                    </tr>
-                </table>';
+                    </tr>';
             }
+            echo'</table>';
         }
 
     }
@@ -120,19 +120,21 @@ function displayReport()
             ?>
         </ul>
     </div>
-    <form method="post">
-        <select name='reportTypeSelect' class='filter-option'>
-            <option selected disabled>Choose Report</option>
-            <option value='propertyReport'>Property Reprot</option>
-            <option value='userReport'>User Reprot</option>
-        </select>
-        <input type="submit" id="searchButton" name="searchButton" value="Submit" />
-    </form>
-    <!--Suggestiongs/Search Results-->
-    <div id="report">
-        <?php
-        displayReport();
-        ?>
+    <div id="report-container">
+        <form method="post">
+            <select id='reportTypeSelect' name='reportTypeSelect' class='filter-option'>
+                <option selected disabled>Choose Report</option>
+                <option value='propertyReport'>Property Reprot</option>
+                <option value='userReport'>User Reprot</option>
+            </select>
+            <input type="submit" id="searchButton" name="searchButton" value="Submit" />
+        </form>
+        <!--Suggestiongs/Search Results-->
+        <div id="report">
+            <?php
+            displayReport();
+            ?>
+        </div>
     </div>
 </body>
 </html>
