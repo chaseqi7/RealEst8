@@ -32,7 +32,17 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="reportPage.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/reportPage.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="367">
+              <caret line="127" column="53" selection-start-line="127" selection-start-column="53" selection-end-line="127" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -89,8 +99,8 @@
         <option value="$PROJECT_DIR$/editProfilePage.php" />
         <option value="$PROJECT_DIR$/changePasswordPage.php" />
         <option value="$PROJECT_DIR$/listingDetails.php" />
-        <option value="$PROJECT_DIR$/reportPage.php" />
         <option value="$PROJECT_DIR$/css/main.css" />
+        <option value="$PROJECT_DIR$/reportPage.php" />
       </list>
     </option>
   </component>
@@ -150,7 +160,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -158,36 +167,11 @@
               <item name="BTZApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="BTZApp" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
-            <path>
-              <item name="BTZApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BTZApp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="BTZApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BTZApp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="img" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="BTZApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BTZApp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="BTZApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BTZApp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="BTZApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BTZApp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="libraries" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -267,14 +251,16 @@
       <workItem from="1523726914853" duration="716000" />
       <workItem from="1524419971675" duration="3602000" />
       <workItem from="1524681929112" duration="1120000" />
+      <workItem from="1524776336018" duration="140000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107312000" />
+    <option name="totallyTimeSpent" value="107452000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13541667" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -313,9 +299,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1513">
           <caret line="89" column="93" selection-start-line="89" selection-start-column="78" selection-end-line="89" selection-end-column="93" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -501,9 +484,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-238">
           <caret line="89" column="93" selection-start-line="89" selection-start-column="78" selection-end-line="89" selection-end-column="93" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -523,8 +503,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/reportPage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
+        <state relative-caret-position="367">
+          <caret line="127" column="53" selection-start-line="127" selection-start-column="53" selection-end-line="127" selection-end-column="53" />
         </state>
       </provider>
     </entry>

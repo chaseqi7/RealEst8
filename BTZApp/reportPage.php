@@ -124,8 +124,8 @@ function displayReport()
         <form method="post">
             <select id='reportTypeSelect' name='reportTypeSelect' class='filter-option'>
                 <option selected disabled>Choose Report</option>
-                <option value='propertyReport'>Property Reprot</option>
-                <option value='userReport'>User Reprot</option>
+                <option value='propertyReport'>Property Report</option>
+                <option value='userReport'>User Report</option>
             </select>
             <input type="submit" id="searchButton" name="searchButton" value="Submit" />
         </form>
